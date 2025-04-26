@@ -135,7 +135,7 @@ git clone --depth=1 https://github.com/sirpdboy/luci-app-autotimeset package/luc
 # eqosplus定时限速
 #git clone --depth=1 https://github.com/sirpdboy/luci-app-eqosplus package/luci-app-eqosplus
 # 拉取文件管理
-#git clone --depth=1 https://github.com/sbwml/luci-app-filemanager package/luci-app-filemanager
+git clone --depth=1 https://github.com/sbwml/luci-app-filemanager package/luci-app-filemanager
 # 家长控制
 #git clone --depth=1 -b main https://github.com/sirpdboy/luci-app-parentcontrol package/luci-app-parentcontrol
 # 添加ddns-go

@@ -47,13 +47,13 @@ jobs:
       if: steps.cacheHash.outputs.cache-hit != 'true'
       uses: peter-evans/repository-dispatch@main
       with:
-        token: ${{ secrets.MY_GITHUB_TOKEN }}
+        token: ${{ secrets.REPO_TOKEN }}
         event-type: ${{ env.date1 }}-LEDE
 
     - name: 删除workflow工作流
       uses: Mattraks/delete-workflow-runs@main
       with:
-        token: ${{ secrets.MY_GITHUB_TOKEN }}
+        token: ${{ secrets.REPO_TOKEN }}
         repository: ${{ github.repository }}
         retain_days: 1
         keep_minimum_runs: 1

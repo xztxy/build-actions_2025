@@ -86,7 +86,7 @@ export kernel_usage="stable"
 mkdir -p package/base-files/files/etc/nikki/run
 curl -fsSL https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geosite.dat > package/base-files/files/etc/nikki/run/geosite.dat
 curl -fsSL https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip.metadb > package/base-files/files/etc/nikki/run/geoip.metadb
-curl -L -o ASN.mmdb https://github.com/mojolabs-id/GeoLite2-Database/releases/download/2025.04.13/GeoLite2-ASN.mmdb > package/base-files/files/etc/nikki/run/ASN.mmdb
+curl -L -o ASN.mmdb https://github.com/mojolabs-id/GeoLite2-Database/releases/download/2025.04.28/GeoLite2-ASN.mmdb > package/base-files/files/etc/nikki/run/ASN.mmdb
 
 ##### 移除要替换的包
 # 删除老argon

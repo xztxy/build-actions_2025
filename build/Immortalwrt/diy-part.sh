@@ -147,7 +147,7 @@ git clone --depth=1 -b main https://github.com/sirpdboy/luci-app-advancedplus pa
 #git_sparse_clone main https://github.com/linkease/istore-ui app-store-ui
 #git_sparse_clone main https://github.com/linkease/istore luci
 # 添加xwan
-#git_sparse_clone master https://github.com/x-wrt/com.x-wrt luci-app-xwan
+git_sparse_clone master https://github.com/x-wrt/com.x-wrt luci-app-xwan
 
 ##### 科学上网插件
 #git clone --depth=1 -b master https://github.com/fw876/helloworld package/luci-app-ssr-plus

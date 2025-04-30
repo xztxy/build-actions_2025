@@ -1,4 +1,4 @@
-name: Update Checker lede
+name: Update Checker xwrt
 
 on:
   workflow_dispatch:

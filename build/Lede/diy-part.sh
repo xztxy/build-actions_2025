@@ -82,10 +82,10 @@ export kernel_usage="stable"
 #curl -fsSL https://raw.githubusercontent.com/xztxy/New_lede_bianyi/refs/heads/main/banner_Momo > package/base-files/files/etc/banner
 
 #下载nikki IP数据库
-mkdir -p package/base-files/files/etc/nikki/run
-curl -fsSL https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geosite.dat > package/base-files/files/etc/nikki/run/geosite.dat
-curl -fsSL https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip.metadb > package/base-files/files/etc/nikki/run/geoip.metadb
-curl -L -o ASN.mmdb https://github.com/mojolabs-id/GeoLite2-Database/releases/download/2025.04.28/GeoLite2-ASN.mmdb > package/base-files/files/etc/nikki/run/ASN.mmdb
+#mkdir -p package/base-files/files/etc/nikki/run
+#curl -fsSL https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geosite.dat > package/base-files/files/etc/nikki/run/geosite.dat
+#curl -fsSL https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip.metadb > package/base-files/files/etc/nikki/run/geoip.metadb
+#curl -L -o ASN.mmdb https://github.com/mojolabs-id/GeoLite2-Database/releases/download/2025.04.28/GeoLite2-ASN.mmdb > package/base-files/files/etc/nikki/run/ASN.mmdb
 
 ##### 移除要替换的包
 # 删除老argon

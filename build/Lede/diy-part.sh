@@ -73,6 +73,13 @@ export kernel_usage="stable"
 ########### 设置密码为空（可选） ###########
 #sed -i 's@.*CYXluq4wUazHjmCDBCqXF*@#&@g' package/lean/default-settings/files/zzz-default-settings
 
+# 交换LAN/WAN口
+#sed -i 's/"eth1 eth2" "eth0"/"eth1 eth2" "eth0"/g' target/linux/x86/base-files/etc/board.d/02_network
+#sed -i "s/'eth1 eth2' 'eth0'/'eth1 eth2' 'eth0'/g" target/linux/x86/base-files/etc/board.d/02_network
+#sed -i "s/lan 'eth0'/lan 'eth0'/g" package/base-files/files/etc/board.d/99-default_network
+#sed -i "s/wan 'eth1'/wan 'eth1'/g" package/base-files/files/etc/board.d/99-default_network
+#sed -i "s/net\/eth1/net\/eth1/g" package/base-files/files/etc/board.d/99-default_network
+
 # 修改主机名以及一些显示信息
 #sed -i "s/hostname='*.*'/hostname='Momo'/" package/base-files/files/bin/config_generate
 #sed -i "s/DISTRIB_ID='*.*'/DISTRIB_ID='OpenWrt'/g" package/base-files/files/etc/openwrt_release

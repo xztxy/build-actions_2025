@@ -8,11 +8,9 @@
 # REPO_TOKEN密匙制作教程：https://git.io/jm.md
 #
 #
+
 name: Xwrt-源码
 on:
-  repository_dispatch:
-    types:
-      - '*-xwrt'
   workflow_dispatch:
     inputs:
       REPO_BRANCH:

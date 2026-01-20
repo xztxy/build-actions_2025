@@ -1,8 +1,8 @@
 #!/bin/bash
 # Copyright (c) 2019-2020 P3TERX <https://p3terx.com>
-# DIY扩展二合一了，在此处可以增加插件
+# DIY扩展二合一了,在此处可以增加插件
 # 自行拉取插件之前请SSH连接进入固件配置里面确认过没有你要的插件再单独拉取你需要的插件
-# 不要一下就拉取别人一个插件包N多插件的，多了没用，增加编译错误，自己需要的才好
+# 不要一下就拉取别人一个插件包N多插件的,多了没用,增加编译错误,自己需要的才好
 
 
 # 后台IP设置
@@ -11,8 +11,8 @@ export Netmask_netm="255.255.255.0"         # IPv4 子网掩码（默认：255.2
 export Op_name="Momo_Lede"                # 修改主机名称为OpenWrt-123(填0为不作修改)
 
 # 内核和系统分区大小(不是每个机型都可用)
-export Kernel_partition_size="32"            # 内核分区大小,每个机型默认值不一样 (填写您想要的数值,默认一般16,数值以MB计算，填0为不作修改),如果你不懂就填0
-export Rootfs_partition_size="512"            # 系统分区大小,每个机型默认值不一样 (填写您想要的数值,默认一般300左右,数值以MB计算，填0为不作修改),如果你不懂就填0
+export Kernel_partition_size="32"            # 内核分区大小,每个机型默认值不一样 (填写您想要的数值,默认一般16,数值以MB计算,填0为不作修改),如果你不懂就填0
+export Rootfs_partition_size="512"            # 系统分区大小,每个机型默认值不一样 (填写您想要的数值,默认一般300左右,数值以MB计算,填0为不作修改),如果你不懂就填0
 
 # 默认主题设置
 export Mandatory_theme="argon"              # 将bootstrap替换您需要的主题为必选主题(可自行更改您要的,源码要带此主题就行,填写名称也要写对) (填写主题名称,填0为不作修改)
@@ -20,7 +20,7 @@ export Default_theme="argon"                # 多主题时,选择某主题为默
 
 # 旁路由选项
 export Gateway_Settings="0"                 # 旁路由设置 IPv4 网关(填入您的网关IP为启用)(填0为不作修改)
-export DNS_Settings="0"                     # 旁路由设置 DNS(填入DNS，多个DNS要用空格分开)(填0为不作修改)
+export DNS_Settings="0"                     # 旁路由设置 DNS(填入DNS,多个DNS要用空格分开)(填0为不作修改)
 export Broadcast_Ipv4="0"                   # 设置 IPv4 广播(填入您的IP为启用)(填0为不作修改)
 export Disable_DHCP="0"                     # 旁路由关闭DHCP功能(1为启用命令,填0为不作修改)
 export Disable_Bridge="0"                   # 旁路由去掉桥接模式(1为启用命令,填0为不作修改)
@@ -34,7 +34,7 @@ export Enable_IPV4_function="0"             # 编译IPV4固件(1为启用命令,
 export OpenClash_branch="0"                 # OpenClash的源码分别有【master分支】和【dev分支】(填0为关闭,填1为使用master分支,填2为使用dev分支,填入1或2的时候固件自动增加此插件)
 
 # 个性签名,默认增加年月日[$(TZ=UTC-8 date "+%Y.%m.%d")]
-export Customized_Information="$(TZ=UTC-8 date "+%Y.%m.%d 我命由我不由天")"  # 个性签名,你想写啥就写啥，(填0为不作修改)
+export Customized_Information="$(TZ=UTC-8 date "+%Y.%m.%d 我命由我不由天")"  # 个性签名,你想写啥就写啥,(填0为不作修改)
 
 # 更换固件内核
 export Replace_Kernel="0"                    # 更换内核版本,在对应源码的[target/linux/架构]查看patches-x.x,看看x.x有啥就有啥内核了(填入内核x.x版本号,填0为不作修改)
@@ -88,7 +88,7 @@ echo "正在克隆 xwan 插件..."
 if git_sparse_clone master https://github.com/x-wrt/com.x-wrt luci-app-xwan; then
     echo "✓ xwan 插件克隆成功"
 else
-    echo "✗ xwan 插件克隆失败，跳过"
+    echo "✗ xwan 插件克隆失败,跳过"
 fi
 
 ##### 科学上网插件
@@ -96,7 +96,7 @@ fi
 # 从 xztxy/small-package 克隆特定插件（使用完整克隆方式）
 echo "正在从 small-package 仓库克隆插件..."
 if git clone --depth=1 -b main https://github.com/xztxy/small-package /tmp/small-package; then
-    echo "仓库克隆成功，正在移动插件..."
+    echo "仓库克隆成功,正在移动插件..."
     
     # 移动需要的插件
     if [ -d "/tmp/small-package/luci-app-syncdial" ]; then
@@ -124,7 +124,7 @@ if git clone --depth=1 -b main https://github.com/xztxy/small-package /tmp/small
     rm -rf /tmp/small-package
     echo "插件处理完成"
 else
-    echo "警告: small-package 仓库克隆失败，跳过此步骤"
+    echo "警告: small-package 仓库克隆失败,跳过此步骤"
 fi
 
 echo "所有插件处理完成"
@@ -142,6 +142,6 @@ openwrt-x86-64-generic.manifest
 openwrt-x86-64-generic-squashfs-rootfs.img.gz
 EOF
 
-# 在线更新时，删除不想保留固件的某个文件，在EOF跟EOF之间加入删除代码，记住这里对应的是固件的文件路径，比如： rm -rf /etc/config/luci
+# 在线更新时,删除不想保留固件的某个文件,在EOF跟EOF之间加入删除代码,记住这里对应的是固件的文件路径,比如: rm -rf /etc/config/luci
 cat >>$DELETE <<-EOF
 EOF

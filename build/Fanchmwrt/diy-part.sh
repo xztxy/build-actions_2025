@@ -88,8 +88,7 @@ git_sparse_clone master https://github.com/x-wrt/com.x-wrt luci-app-xwan
 ##### 科学上网插件
 
 
-# 添加nikki
-git clone --depth=1 -b main https://github.com/nikkinikki-org/OpenWrt-nikki package/OpenWrt-nikki
+git_sparse_clone main https://github.com/xztxy/small-package luci-app-syncdial luci-app-nikki nikki
 
 
 # 整理固件包时候,删除您不想要的固件或者文件,让它不需要上传到Actions空间(根据编译机型变化,自行调整删除名称)

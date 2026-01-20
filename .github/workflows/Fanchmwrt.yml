@@ -104,7 +104,7 @@ jobs:
     
     env:
       FOLDER_NAME: ${{ matrix.target }}
-      SOURCE_CODE: ${{ matrix.target }}
+      SOURCE_CODE: FANCHMWRT
     strategy:
       fail-fast: false
       matrix:

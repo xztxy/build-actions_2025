@@ -94,21 +94,26 @@ git clone --depth=1 -b main https://github.com/gdy666/luci-app-lucky package/luc
 echo "正在克隆 OpenWrt-nikki..."
 git clone --depth=1 -b main https://github.com/nikkinikki-org/OpenWrt-nikki package/nikki || echo "克隆 OpenWrt-nikki 失败，继续执行"
 
-# 修改插件名字
-grep -rl '"终端"' . | xargs -r sed -i 's?"终端"?"TTYD"?g'
-grep -rl '"TTYD 终端"' . | xargs -r sed -i 's?"TTYD 终端"?"TTYD"?g'
-grep -rl '"网络存储"' . | xargs -r sed -i 's?"网络存储"?"NAS"?g'
-grep -rl '"实时流量监测"' . | xargs -r sed -i 's?"实时流量监测"?"流量"?g'
-grep -rl '"KMS 服务器"' . | xargs -r sed -i 's?"KMS 服务器"?"KMS激活"?g'
-grep -rl '"USB 打印服务器"' . | xargs -r sed -i 's?"USB 打印服务器"?"打印服务"?g'
-grep -rl '"Web 管理"' . | xargs -r sed -i 's?"Web 管理"?"Web管理"?g'
-grep -rl '"管理权"' . | xargs -r sed -i 's?"管理权"?"改密码"?g'
-grep -rl '"带宽监控"' . | xargs -r sed -i 's?"带宽监控"?"监控"?g'
+# 修改插件名字（添加错误处理）
+echo "正在修改插件名称..."
+grep -rl '"终端"' . 2>/dev/null | xargs -r sed -i 's?"终端"?"TTYD"?g' || true
+grep -rl '"TTYD 终端"' . 2>/dev/null | xargs -r sed -i 's?"TTYD 终端"?"TTYD"?g' || true
+grep -rl '"网络存储"' . 2>/dev/null | xargs -r sed -i 's?"网络存储"?"NAS"?g' || true
+grep -rl '"实时流量监测"' . 2>/dev/null | xargs -r sed -i 's?"实时流量监测"?"流量"?g' || true
+grep -rl '"KMS 服务器"' . 2>/dev/null | xargs -r sed -i 's?"KMS 服务器"?"KMS激活"?g' || true
+grep -rl '"USB 打印服务器"' . 2>/dev/null | xargs -r sed -i 's?"USB 打印服务器"?"打印服务"?g' || true
+grep -rl '"Web 管理"' . 2>/dev/null | xargs -r sed -i 's?"Web 管理"?"Web管理"?g' || true
+grep -rl '"管理权"' . 2>/dev/null | xargs -r sed -i 's?"管理权"?"改密码"?g' || true
+grep -rl '"带宽监控"' . 2>/dev/null | xargs -r sed -i 's?"带宽监控"?"监控"?g' || true
+echo "插件名称修改完成"
 
 
 # 整理固件包时候,删除您不想要的固件或者文件,让它不需要上传到Actions空间(根据编译机型变化,自行调整删除名称)
 if [ -n "$CLEAR_PATH" ]; then
-  cat >"$CLEAR_PATH" <<-EOF
+  mkdir -p "$(dirname "$CLEAR_PATH")" 2>/dev/null || true
+  cat >"$CLEAR_PATH" <<-'EOF' || {
+    echo "警告: 无法写入 CLEAR_PATH 文件，继续执行"
+  }
 packages
 config.buildinfo
 feeds.buildinfo
@@ -121,14 +126,19 @@ openwrt-x86-64-generic-squashfs-rootfs.img.gz
 EOF
 fi
 
-# 在线更新时，删除不想保留固件的某个文件，在EOF跟EOF之间加入删除代码，记住这里对应的是固件的文件路径，比如： rm -rf /etc/config/luci
+# 在线更新时，删除不想保留固件的某个文件
 if [ -n "$DELETE" ]; then
-  cat >>"$DELETE" <<-EOF
-# 这里可以添加需要删除的文件路径
-# 例如: rm -rf /etc/config/某配置文件
+  mkdir -p "$(dirname "$DELETE")" 2>/dev/null || true
+  cat >>"$DELETE" <<-'EOF' || {
+    echo "警告: 无法写入 DELETE 文件，继续执行"
+  }
+# 在此添加需要删除的文件路径
+# 例如: /etc/config/某配置文件
 EOF
 fi
 
 # 脚本执行完成
+echo "=========================================="
 echo "diy-part.sh 脚本执行完成"
+echo "=========================================="
 exit 0

@@ -179,7 +179,27 @@ grep -rl '"USB 打印服务器"' . | xargs -r sed -i 's?"USB 打印服务器"?"�
 grep -rl '"Web 管理"' . | xargs -r sed -i 's?"Web 管理"?"Web管理"?g'
 grep -rl '"管理权"' . | xargs -r sed -i 's?"管理权"?"改密码"?g'
 grep -rl '"带宽监控"' . | xargs -r sed -i 's?"带宽监控"?"监控"?g'
+# ========== 直接修改源文件方案 ==========
+echo "正在修复 xray-core Go 1.26 编译冲突..."
 
+# 在 feeds update 之后，编译之前执行
+GVISOR_FILE=$(find "${HOME_PATH}" -path "*/gvisor.dev/gvisor/pkg/sync/runtime_constants_go125.go" 2>/dev/null | head -n 1)
+
+if [ -f "$GVISOR_FILE" ]; then
+    echo "找到文件: $GVISOR_FILE"
+    
+    # 检查是否已经有 build tag
+    if ! grep -q "//go:build !go1.26" "$GVISOR_FILE"; then
+        # 在文件开头插入 build tag
+        sed -i '1i//go:build !go1.26\n// +build !go1.26\n' "$GVISOR_FILE"
+        echo "✓ 已添加 Go 1.26 排除标签"
+    else
+        echo "✓ build tag 已存在，跳过"
+    fi
+else
+    echo "⚠ 未找到 gvisor 文件，可能在编译时才会下载"
+fi
+# ========== 直接修改方案结束 ==========
 
 # 整理固件包时候,删除您不想要的固件或者文件,让它不需要上传到Actions空间(根据编译机型变化,自行调整删除名称)
 cat >"$CLEAR_PATH" <<-EOF

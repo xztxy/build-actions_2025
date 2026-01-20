@@ -57,35 +57,6 @@ export Delete_unnecessary_items="1"          # 个别机型内一堆其他机型
 export Disable_53_redirection="1"            # 删除DNS强制重定向53端口防火墙规则(个别源码本身不带此功能)(1为启用命令,填0为不作修改)
 export Cancel_running="0"                    # 取消路由器每天跑分任务(个别源码本身不带此功能)(1为启用命令,填0为不作修改)
 
-
-# 晶晨CPU系列打包固件设置(不懂请看说明)
-export amlogic_model="s905d"
-export amlogic_kernel="6.1.120_6.12.15"
-export auto_kernel="true"
-export rootfs_size="512/2560"
-export kernel_usage="stable"
-
-# Description: OpenWrt DIY script part 2 (After Update feeds)
-
-# 交换LAN/WAN口
-sed -i 's/"eth1 eth2" "eth0"/"eth0 eth1 eth2" "eth3"/g' target/linux/x86/base-files/etc/board.d/02_network
-sed -i "s/'eth1 eth2' 'eth0'/'eth0 eth1 eth2' 'eth3'/g" target/linux/x86/base-files/etc/board.d/02_network
-
-##### 移除要替换的包
-# 删除英文版netdata
-rm -rf feeds/luci/applications/luci-app-netdata
-
-###### Git稀疏克隆
-# 参数1是分支名, 参数2是仓库地址, 参数3是子目录，同一个仓库下载多个文件夹直接在后面跟文件名或路径，空格分开
-function git_sparse_clone() {
-  branch="$1" repourl="$2" && shift 2
-  git clone --depth=1 -b $branch --single-branch --filter=blob:none --sparse $repourl
-  repodir=$(echo $repourl | awk -F '/' '{print $(NF)}')
-  cd $repodir && git sparse-checkout set $@
-  mv -f $@ ../package
-  cd .. && rm -rf $repodir
-}
-
 ###### Themes
 # 拉取酷猫主题
 git clone --depth=1 -b master https://github.com/sirpdboy/luci-theme-kucat package/luci-theme-kucat
@@ -93,40 +64,21 @@ git clone --depth=1 -b master https://github.com/sirpdboy/luci-app-kucat-config 
 # 拉取peditx主题
 git clone --depth=1 -b main https://github.com/peditx/luci-theme-peditx package/luci-theme-peditx
 
-###### 添加额外插件
-# 拉取中文版netdata
-git clone --depth=1 -b main https://github.com/sirpdboy/luci-app-netdata package/luci-app-netdata
+
 # 添加Lucky
 git clone --depth=1 -b main https://github.com/gdy666/luci-app-lucky package/lucky
-# 添加系统高级设置加强版
-git clone --depth=1 -b main https://github.com/sirpdboy/luci-app-advancedplus package/luci-app-advancedplus
-# 拉取定时设置
-git clone --depth=1 https://github.com/sirpdboy/luci-app-autotimeset package/luci-app-autotimeset
+
 # 拉取文件管理
 git clone --depth=1 https://github.com/sbwml/luci-app-filemanager package/luci-app-filemanager
-# 设备关机功能
-git clone --depth=1 https://github.com/sirpdboy/luci-app-poweroffdevice package/luci-app-poweroffdevice
+
 # 添加xwan
 git_sparse_clone master https://github.com/x-wrt/com.x-wrt luci-app-xwan
 
 ##### 科学上网插件
-# 添加MOMO
-git_sparse_clone main https://github.com/nikkinikki-org/OpenWrt-momo luci-app-momo momo
+
 
 # 添加nikki
-git clone --depth=1 -b main https://github.com/nikkinikki-org/OpenWrt-nikki package/OpenWrt-nikki || {
-    echo "克隆 OpenWrt-nikki 失败，继续执行..."
-}
-
-# 修改插件名字
-grep -rl '"终端"' . | xargs -r sed -i 's?"终端"?"TTYD"?g'
-grep -rl '"TTYD 终端"' . | xargs -r sed -i 's?"TTYD 终端"?"TTYD"?g'
-grep -rl '"网络存储"' . | xargs -r sed -i 's?"网络存储"?"NAS"?g'
-grep -rl '"实时流量监测"' . | xargs -r sed -i 's?"实时流量监测"?"流量"?g'
-grep -rl '"KMS 服务器"' . | xargs -r sed -i 's?"KMS 服务器"?"KMS激活"?g'
-grep -rl '"USB 打印服务器"' . | xargs -r sed -i 's?"USB 打印服务器"?"打印服务"?g'
-grep -rl '"管理权"' . | xargs -r sed -i 's?"管理权"?"改密码"?g'
-grep -rl '"带宽监控"' . | xargs -r sed -i 's?"带宽监控"?"监控"?g'
+git clone --depth=1 -b main https://github.com/nikkinikki-org/OpenWrt-nikki package/OpenWrt-nikki
 
 
 # 整理固件包时候,删除您不想要的固件或者文件,让它不需要上传到Actions空间(根据编译机型变化,自行调整删除名称)

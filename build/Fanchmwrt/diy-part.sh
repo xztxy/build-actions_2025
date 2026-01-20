@@ -129,8 +129,13 @@ fi
 
 echo "所有插件处理完成"
 
+# 确保目录存在
+mkdir -p "$(dirname "$CLEAR_PATH")" 2>/dev/null || true
+mkdir -p "$(dirname "$DELETE")" 2>/dev/null || true
+
 # 整理固件包时候,删除您不想要的固件或者文件,让它不需要上传到Actions空间(根据编译机型变化,自行调整删除名称)
-cat >"$CLEAR_PATH" <<-EOF
+if [ -n "$CLEAR_PATH" ]; then
+    cat >"$CLEAR_PATH" <<-EOF
 packages
 config.buildinfo
 feeds.buildinfo
@@ -141,7 +146,18 @@ openwrt-x86-64-generic-kernel.bin
 openwrt-x86-64-generic.manifest
 openwrt-x86-64-generic-squashfs-rootfs.img.gz
 EOF
+    echo "CLEAR_PATH 文件创建成功"
+else
+    echo "警告: CLEAR_PATH 变量未定义"
+fi
 
 # 在线更新时,删除不想保留固件的某个文件,在EOF跟EOF之间加入删除代码,记住这里对应的是固件的文件路径,比如: rm -rf /etc/config/luci
-cat >>$DELETE <<-EOF
+if [ -n "$DELETE" ]; then
+    cat >>"$DELETE" <<-EOF
 EOF
+    echo "DELETE 文件创建成功"
+else
+    echo "警告: DELETE 变量未定义"
+fi
+
+echo "diy-part.sh 脚本执行完成"

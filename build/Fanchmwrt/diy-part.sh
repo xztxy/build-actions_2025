@@ -81,8 +81,10 @@ function git_sparse_clone() {
 # 拉取酷猫主题
 echo "正在克隆 luci-theme-kucat..."
 git clone --depth=1 -b master https://github.com/sirpdboy/luci-theme-kucat package/luci-theme-kucat || echo "克隆 luci-theme-kucat 失败，继续执行"
+
 echo "正在克隆 luci-app-kucat-config..."
 git clone --depth=1 -b master https://github.com/sirpdboy/luci-app-kucat-config package/luci-app-kucat-config || echo "克隆 luci-app-kucat-config 失败，继续执行"
+
 echo "正在克隆 luci-app-mosdns..."
 git clone --depth=1 -b v5 https://github.com/sbwml/luci-app-mosdns package/mosdns || echo "克隆 luci-app-mosdns 失败，继续执行"
 
@@ -111,9 +113,7 @@ echo "插件名称修改完成"
 # 整理固件包时候,删除您不想要的固件或者文件,让它不需要上传到Actions空间(根据编译机型变化,自行调整删除名称)
 if [ -n "$CLEAR_PATH" ]; then
   mkdir -p "$(dirname "$CLEAR_PATH")" 2>/dev/null || true
-  cat >"$CLEAR_PATH" <<-'EOF' || {
-    echo "警告: 无法写入 CLEAR_PATH 文件，继续执行"
-  }
+  cat >"$CLEAR_PATH" <<'EOF'
 packages
 config.buildinfo
 feeds.buildinfo
@@ -129,9 +129,7 @@ fi
 # 在线更新时，删除不想保留固件的某个文件
 if [ -n "$DELETE" ]; then
   mkdir -p "$(dirname "$DELETE")" 2>/dev/null || true
-  cat >>"$DELETE" <<-'EOF' || {
-    echo "警告: 无法写入 DELETE 文件，继续执行"
-  }
+  cat >>"$DELETE" <<'EOF'
 # 在此添加需要删除的文件路径
 # 例如: /etc/config/某配置文件
 EOF

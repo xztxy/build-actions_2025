@@ -1,327 +1,172 @@
-name: 编译Fanchmwrt固件
+#
+# 请大家记住拉取的是我的 xztxy/build-actions 仓库，拉取的是其他仓库有问题，别问我，我也不清楚什么问题
+#
+# 因为SSH连接配置固件直接编译，会给github停止编译的,所以要另外触发启动编译程序
+#
+# 一般情况下都能触发启动编译的，除非没设置好密匙，或者密匙过期了，或者密匙错误之类的
+#
+# REPO_TOKEN密匙制作教程：https://git.io/jm.md
+#
+#
 
+name: Fanchmwrt-momo
 on:
   repository_dispatch:
+    types:
+      - '*-FANCHMWRT'
   workflow_dispatch:
     inputs:
       REPO_BRANCH:
-        description: '选择源码分支'
+        description: 'Fanchmwrt源码'
         required: true
         default: 'fanchmwrt-24.10.4'
         type: choice
         options:
-          - fanchmwrt-24.10.4
+          - 'fanchmwrt-24.10.4'
       CONFIG_FILE:
-        description: '选择配置文件'
+        description: '请选择配置文件'
         required: true
         default: 'x86_64'
         type: choice
         options:
-          - x86_64
+          - 'armsr_rootfs_tar_gz'
+          - 'asus_rt-ac42u'
+          - 'd-team_newifi-d2'
+          - 'p2w_r619ac-128m'
+          - 'phicomm_n1'
+          - 'phicomm_k2p'
+          - 'phicomm_k3'
+          - 'x86_32'
+          - 'x86_64'
+          - 'xiaoyu_xy-c5'
       INFORMATION_NOTICE:
-        description: '信息通知'
+        description: 'Telegram或pushplus信息通知'
         required: true
         default: '关闭'
         type: choice
         options:
-          - 关闭
-          - TG
-          - PUSH
+          - '关闭'
+          - 'Telegram'
+          - 'Pushplus'
       KEEP_WORKFLOWS:
-        description: '保留多少天的workflows记录'
+        description: '清理workflows,保留[X]个runs不被清理'
         required: true
         default: '30'
       KEEP_RELEASES:
-        description: '保留多少天的releases记录'
+        description: '清理Releases,保留[X]个Releases不被清理'
         required: true
         default: '30'
       SSH_ACTION:
-        description: 'SSH远程连接'
-        required: true
+        description: 'SSH远程配置固件'
+        required: false
         default: 'false'
         type: boolean
       UPLOAD_FIRMWARE:
-        description: '上传固件到Artifacts'
-        required: true
+        description: '上传固件到 Github Artifacts'
+        required: false
         default: 'true'
         type: boolean
       UPLOAD_RELEASE:
-        description: '发布固件到Releases'
-        required: true
+        description: '发布固件到 Github Releases'
+        required: false
         default: 'false'
         type: boolean
       CACHEWRTBUILD_SWITCH:
-        description: '是否开启缓存加速'
-        required: true
+        description: '缓存加速编译'
+        required: false
         default: 'true'
         type: boolean
       UPDATE_FIRMWARE_ONLINE:
-        description: '是否支持固件在线更新'
-        required: true
+        description: '在线更新固/打包aarch64系列为img固件'
+        required: false
         default: 'true'
         type: boolean
 
+
+# 如若启动定时编译的话,配置文件是设置对应文件夹内的settings.ini文件
+# 定时触发开启开始编译(把下面两个#去掉开启,时间设置请看定时开启编译说明)
+#  schedule:
+#   - cron: 35 18 * * *
+
 env:
-  GIT_REPOSITORY: ${{ github.repository }}
+  GIT_REPOSITORY: ${{github.repository}}
   REPO_TOKEN: ${{ secrets.REPO_TOKEN }}
   PUSH_PLUS_TOKEN: ${{ secrets.PUSH_PLUS_TOKEN }}
   TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
   TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
   TZ: Asia/Shanghai
-  FOLDER_NAME: Fanchmwrt
-  SOURCE_CODE: FANCHMWRT
 
 jobs:
   build:
-    name: 启动"${{ github.event.inputs.REPO_BRANCH }}"触发编译
+    name: 启动"${{ matrix.target }}-${{ github.event.inputs.REPO_BRANCH }}"触发编译
     runs-on: ubuntu-22.04
     if: ${{ github.event.repository.owner.id }} == ${{ github.event.sender.id }}
-
+    
+    env:
+      FOLDER_NAME: ${{ matrix.target }}
+      SOURCE_CODE: FANCHMWRT
+    strategy:
+      fail-fast: false
+      matrix:
+        target: [Fanchmwrt]
+        
+        # 请勿对 target: [Fanchmwrt] 做任何修改
+        
     steps:
-    - name: 检出代码
+    - name: 准备结束
       uses: actions/checkout@v4
-
-    - name: 检查密钥
+      
+    - name: 检测密匙/文件/版本
       uses: xztxy/common@mishi
 
-    - name: 读取配置
-      run: |
-        cd ${GITHUB_WORKSPACE}
-        
-        if [[ -d "build" ]]; then
-           rm -rf operates
-           cp -Rf build ${GITHUB_WORKSPACE}/operates
-           COMPILE_PATH="$GITHUB_WORKSPACE/operates/${FOLDER_NAME}"
-        fi
-        
-        if [[ "${{ github.event_name }}" == "push" ]] && [[ "${{ github.event.head_commit.message }}" != "null" ]]; then
-          #触发启动
-           if [[ -f "${COMPILE_PATH}/relevance/settings.ini" ]]; then
-              source ${COMPILE_PATH}/relevance/settings.ini
-              echo "ERRUN_NUMBER=${ERRUN_NUMBER}" >> ${GITHUB_ENV}
-           fi
-        elif [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
-           #手动启动
-           if [ -f "${COMPILE_PATH}/settings.ini" ]; then
-              SOURCE_CODE="$(grep '^SOURCE_CODE=' "${COMPILE_PATH}/settings.ini" | awk -F'"' '{print $2}')"
-              COMPILATION_INFORMATION="$(grep '^COMPILATION_INFORMATION=' "${COMPILE_PATH}/settings.ini" | awk -F'"' '{print $2}')"
-           fi
-           REPO_BRANCH="${{ github.event.inputs.REPO_BRANCH }}"
-           CONFIG_FILE="${{ github.event.inputs.CONFIG_FILE }}"
-           INFORMATION_NOTICE="${{ github.event.inputs.INFORMATION_NOTICE }}"
-           KEEP_WORKFLOWS="${{ github.event.inputs.KEEP_WORKFLOWS }}"
-           KEEP_RELEASES="${{ github.event.inputs.KEEP_RELEASES }}"
-           SSH_ACTION="${{ github.event.inputs.SSH_ACTION }}"
-           UPLOAD_FIRMWARE="${{ github.event.inputs.UPLOAD_FIRMWARE }}"
-           UPLOAD_RELEASE="${{ github.event.inputs.UPLOAD_RELEASE }}"
-           CACHEWRTBUILD_SWITCH="${{ github.event.inputs.CACHEWRTBUILD_SWITCH }}"
-           UPDATE_FIRMWARE_ONLINE="${{ github.event.inputs.UPDATE_FIRMWARE_ONLINE }}"
-        else
-           #其他启动
-           if [[ -f "${COMPILE_PATH}/settings.ini" ]]; then
-              source ${COMPILE_PATH}/settings.ini
-           fi
-        fi
-        
-        echo "SOURCE_CODE=${SOURCE_CODE}" >> ${GITHUB_ENV}
-        echo "REPO_BRANCH=${REPO_BRANCH}" >> ${GITHUB_ENV}
-        echo "INFORMATION_NOTICE=${INFORMATION_NOTICE}" >> ${GITHUB_ENV}
-        echo "KEEP_WORKFLOWS=${KEEP_WORKFLOWS}" >> ${GITHUB_ENV}
-        echo "KEEP_RELEASES=${KEEP_RELEASES}" >> ${GITHUB_ENV}
-        echo "SSH_ACTION=${SSH_ACTION}" >> ${GITHUB_ENV}
-        echo "UPLOAD_FIRMWARE=${UPLOAD_FIRMWARE}" >> ${GITHUB_ENV}
-        echo "UPLOAD_RELEASE=${UPLOAD_RELEASE}" >> ${GITHUB_ENV}
-        echo "CACHEWRTBUILD_SWITCH=${CACHEWRTBUILD_SWITCH}" >> ${GITHUB_ENV}
-        echo "UPDATE_FIRMWARE_ONLINE=${UPDATE_FIRMWARE_ONLINE}" >> ${GITHUB_ENV}
-        echo "GITHUB_LINK=https://github.com/${{ github.repository }}" >> ${GITHUB_ENV}
-        echo "GIT_ACTOR=${{ github.actor }}" >> ${GITHUB_ENV}
-        echo "WAREHOUSE_MAN=${GIT_REPOSITORY##*/}" >> ${GITHUB_ENV}
-        echo "RUN_NUMBER=${{ github.run_number }}" >> ${GITHUB_ENV}
-        echo "GIT_REFNAME=${{ github.ref_name }}" >> ${GITHUB_ENV}
-        echo "COMPILATION_INFORMATION=${COMPILATION_INFORMATION}" >> ${GITHUB_ENV}
-        echo "CONFIG_FILE=${CONFIG_FILE}" >> ${GITHUB_ENV}
-        
-        echo "HOME_PATH=$GITHUB_WORKSPACE/openwrt" >> ${GITHUB_ENV}
-        echo "OPERATES_PATH=$GITHUB_WORKSPACE/operates" >> ${GITHUB_ENV}
-        echo "COMPILE_PATH=${COMPILE_PATH}" >> ${GITHUB_ENV}
-        echo "BUILD_DIY=${COMPILE_PATH}/diy" >> ${GITHUB_ENV}
-        echo "BUILD_FILES=${COMPILE_PATH}/files" >> ${GITHUB_ENV}
-        echo "BUILD_PATCHES=${COMPILE_PATH}/patches" >> ${GITHUB_ENV}
-        echo "BUILD_PARTSH=${COMPILE_PATH}/diy-part.sh" >> ${GITHUB_ENV}
-        echo "BUILD_SETTINGS=${COMPILE_PATH}/settings.ini" >> ${GITHUB_ENV}
-        echo "MYCONFIG_FILE=${COMPILE_PATH}/seed/${CONFIG_FILE}" >> ${GITHUB_ENV}
-
-    - name: 处理开关
-      run: |
-        cd ${GITHUB_WORKSPACE}
-        case "${{ env.CACHEWRTBUILD_SWITCH }}" in
-          *"false"*)
-            echo "CACHEWRTBUILD_SWITCH=true" >> "$GITHUB_ENV"
-            echo "CLEAR_CACHEWRTBUILD=true" >> "$GITHUB_ENV"
-            ;;
-          *)
-            echo "CACHEWRTBUILD_SWITCH=true" >> "$GITHUB_ENV"
-            ;;
-        esac
-        
-        case "${{ env.INFORMATION_NOTICE }}" in
-          *"tg"*|*"TG"*|*"telegram"*|*"Telegram"*)
-            echo "INFORMATION_NOTICE=TG" >> "$GITHUB_ENV"
-            ;;
-          *"push"*|*"PUSH"*|*"pushplus"*|*"Pushplus"*)
-            echo "INFORMATION_NOTICE=PUSH" >> "$GITHUB_ENV"
-            ;;
-          *)
-            echo "INFORMATION_NOTICE=false" >> "$GITHUB_ENV"
-            ;;
-        esac
-
-    - name: 下载公共文件
-      run: |
-        cd ${GITHUB_WORKSPACE}
-        LINSHI_COMMON="/tmp/common"
-        [ -d "${LINSHI_COMMON}" ] && rm -rf "${LINSHI_COMMON}"
-        if ! git clone -q --single-branch --depth=1 --branch=main https://github.com/xztxy/common "${LINSHI_COMMON}"; then
-            git clone --depth=1 https://github.com/xztxy/common "${LINSHI_COMMON}"
-        fi
-        if [ -f "${LINSHI_COMMON}/custom/first.sh" ] && grep -qE "bash" "${LINSHI_COMMON}/custom/first.sh"; then
-           chmod -R +x "${LINSHI_COMMON}"
-           source "${LINSHI_COMMON}/custom/first.sh"
-        else
-           echo -e "\033[31m 对比版本号文件下载失败，请检查网络再来 \033[0m\n"
-           exit 1
-        fi
-
-    - name: 加载自定义变量
-      run: |
-        cd ${GITHUB_WORKSPACE}
-        if [ -f "${COMMON_SH}" ] && grep -qE "bash" "${COMMON_SH}"; then
-           chmod +x "${COMMON_SH}"
-           bash $COMMON_SH Diy_menu6
-        else
-           echo -e "\033[31m 对比版本号文件下载失败，请检查网络再来 \033[0m\n"
-           exit 1
-        fi
-
-    - name: 安装编译环境
+    - name: 部署编译环境
+      env:
+        DEBIAN_FRONTEND: noninteractive
       run: |
         sudo -E apt-get -qq update -y
         sudo -E apt-get -qq install -y gawk git gettext libssl-dev xsltproc zip git-core wget curl grep python2.7 python3 python3-pip libpython3-dev snapd
         sudo snap install jq
         sudo timedatectl set-timezone "$TZ"
-        sudo mkdir -p /workdir
-        sudo chown $USER:$GROUPS /workdir
-
-    - name: 克隆源码
-      working-directory: /workdir
+        sudo mkdir -p /${{ env.DIY_WORK }}
+        sudo chown $USER:$GROUPS /${{ env.DIY_WORK }}
+    
+    - name: 下载"${{ matrix.target }}-${{ inputs.REPO_BRANCH }}"源码
+      working-directory: /${{ env.DIY_WORK }}
       run: |
         git clone -q -b "${REPO_BRANCH}" --single-branch "${REPO_URL}" openwrt
-        ln -sf /workdir/openwrt ${GITHUB_WORKSPACE}/openwrt
-        bash /tmp/common/common.sh Diy_feedsconf
+        ln -sf /${{ env.DIY_WORK }}/openwrt ${GITHUB_WORKSPACE}/openwrt
+        bash ${{ env.COMMON_SH }} Diy_feedsconf
         echo "SHANG_CHUAN=true" >> ${GITHUB_ENV}
-
+    
     - name: 公告
+      continue-on-error: true
       uses: xztxy/common@message
-
-    - name: 提示信息
-      run: |
-        cd "$HOME_PATH"
-        echo -e "\n\033[0;33m第一次用我仓库的，请不要拉取任何插件，先SSH进入固件配置那里看过我脚本实在是没有你要的插件才再拉取\033[0m"
-        echo -e "\n\033[0;33m拉取插件应该单独拉取某一个你需要的插件，别一下子就拉取别人一个插件包，这样容易增加编译失败概率\033[0m"
-        if [[ "${UPDATE_FIRMWARE_ONLINE}" == "true" ]]; then
-           echo -e "\n\033[0;31mSSH连接固件输入命令'openwrt'可进行修改后台IP、清空密码、还原出厂设置和在线更新固件操作\033[0m"
-        else
-           echo -e "\n\033[0;31mSSH连接固件输入命令'openwrt'可进行修改后台IP，清空密码和还原出厂设置操作\033[0m"
-        fi
-        echo
-
-    - name: 下载插件
+ 
+    - name: 运行其他和SSH远程(make menuconfig)
+      id: info
       uses: xztxy/common@need
-
-    - name: 加载自定义设置
-      run: |
-        cd $HOME_PATH
-        if [ -f "$COMMON_SH" ]; then
-          chmod +x "$COMMON_SH"
-          bash "$COMMON_SH" Diy_menu2 || {
-            echo "执行 Diy_menu2 失败"
-            exit 1
-          }
-        else
-          echo "找不到 common.sh 文件"
-          exit 1
-        fi
-
-    - name: SSH连接
-      uses: danshui-git/debugger-action@main
-      if: ${{ env.SSH_ACTION == 'true' }}
-
-    - name: 生成配置文件
-      run: |
-        cd $HOME_PATH
-        bash $COMMON_SH Diy_menu3
-
-    - name: 缓存加速
-      if: env.CACHEWRTBUILD_SWITCH == 'true'
-      uses: stupidloud/cachewrtbuild@main
-      with:
-        ccache: 'true'
-        mixkey: ${{ env.SOURCE }}-${{ env.LUCI_EDITION }}-${{ env.REPO_BRANCH }}-${{ env.CONFIG_FILE }}
-        clean: ${{ env.CLEAR_CACHEWRTBUILD }}
-        prefix: ${{ env.HOME_PATH }}
-
-    - name: 下载软件包
-      run: |
-        cd $HOME_PATH
-        make defconfig
-        make download -j16
-
-    - name: 编译固件
-      run: |
-        cd $HOME_PATH
-        echo -e "$(nproc) thread compile"
-        make -j$(nproc) || make -j1 V=s
-        echo "status=success" >> ${GITHUB_OUTPUT}
-
-    - name: 整理固件
-      id: organize
-      run: |
-        cd $HOME_PATH
-        bash $COMMON_SH Diy_firmware
-
-    - name: 上传固件到Artifacts
-      if: steps.organize.outputs.status == 'success' && env.UPLOAD_FIRMWARE == 'true'
-      uses: actions/upload-artifact@main
-      with:
-        name: ${{ env.SOURCE }}-${{ env.LUCI_EDITION }}-${{ env.CONFIG_FILE }}-firmware-${{ env.GUJIAN_DATE }}
-        path: ${{ env.FIRMWARE_PATH }}
-
-    - name: 发布固件到Releases
-      if: steps.organize.outputs.status == 'success' && env.UPLOAD_RELEASE == 'true'
-      uses: ncipollo/release-action@main
-      with:
-        name: ${{ env.SOURCE }}-${{ env.LUCI_EDITION }}-${{ env.CONFIG_FILE }}
-        tag: ${{ env.GUJIAN_DATE }}
-        token: ${{ secrets.REPO_TOKEN }}
-        artifacts: ${{ env.FIRMWARE_PATH }}/*
-        body: |
-          **固件信息：**
-          - 源码：${{ env.SOURCE }}
-          - 分支：${{ env.REPO_BRANCH }}
-          - 配置：${{ env.CONFIG_FILE }}
-          - 编译时间：${{ env.GUJIAN_DATE }}
-
-    - name: 清理Workflows
+        
+    - name: 编译信息
+      continue-on-error: true
+      if: env.COMPILATION_INFORMATION == 'true'
+      uses: xztxy/common@message
+    
+    - name: 清理releases和workflows
+      continue-on-error: true
       uses: danshui-git/delete-releases-workflows@main
       with:
-        delete_workflows: true
-        workflows_keep_day: ${{ env.KEEP_WORKFLOWS }}
         delete_releases: true
-        releases_keep_day: ${{ env.KEEP_RELEASES }}
+        prerelease_option: all
+        releases_keep_keyword: targz/Update
+        releases_keep_latest: ${{ env.KEEP_RELEASES }}
         delete_tags: true
-      env:
-        GITHUB_TOKEN: ${{ secrets.REPO_TOKEN }}
-
-    - name: 触发下一个编译
-      if: env.SHANG_CHUAN == 'true'
+        max_releases_fetch: 300
+        delete_workflows: true
+        workflows_keep_latest: ${{ env.KEEP_WORKFLOWS }}
+        max_workflows_fetch: 300
+        repo: ${{ github.repository }}
+        gh_token: ${{ secrets.REPO_TOKEN }}
+        
+    - name: 触发启动"${{ matrix.target }}"开始编译
+      if: steps.info.outcome == 'success'
       uses: xztxy/common@trigger

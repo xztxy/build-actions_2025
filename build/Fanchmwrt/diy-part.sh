@@ -28,7 +28,7 @@ export Disable_Bridge="0"                   # 旁路由去掉桥接模式(1为�
 export Create_Ipv6_Lan="0"                  # 爱快+OP双系统时,爱快接管IPV6,在OP创建IPV6的lan口接收IPV6信息(1为启用命令,填0为不作修改)
 
 # IPV6、IPV4 选择
-export Enable_IPV6_function="0"             # 编译IPV6固件(1为启用命令,填0为不作修改)(如果跟Create_Ipv6_Lan一起启用命令的话,Create_Ipv6_Lan命令会自动关闭)
+export Enable_IPV6_function="1"             # 编译IPV6固件(1为启用命令,填0为不作修改)(如果跟Create_Ipv6_Lan一起启用命令的话,Create_Ipv6_Lan命令会自动关闭)
 export Enable_IPV4_function="0"             # 编译IPV4固件(1为启用命令,填0为不作修改)(如果跟Enable_IPV6_function一起启用命令的话,此命令会自动关闭)
 
 # 替换OpenClash的源码(默认master分支)
@@ -97,15 +97,15 @@ git clone --depth=1 -b main https://github.com/nikkinikki-org/OpenWrt-nikki pack
 # git clone --depth=1 -b main https://github.com/libntdll/luci-app-autoupdate package/luci-app-autoupdate
 
 # 修改插件名字
-grep -rl '"终端"' . | xargs -r sed -i 's?"终端"?"TTYD"?g'
-grep -rl '"TTYD 终端"' . | xargs -r sed -i 's?"TTYD 终端"?"TTYD"?g'
-grep -rl '"网络存储"' . | xargs -r sed -i 's?"网络存储"?"NAS"?g'
-grep -rl '"实时流量监测"' . | xargs -r sed -i 's?"实时流量监测"?"流量"?g'
-grep -rl '"KMS 服务器"' . | xargs -r sed -i 's?"KMS 服务器"?"KMS激活"?g'
-grep -rl '"USB 打印服务器"' . | xargs -r sed -i 's?"USB 打印服务器"?"打印服务"?g'
-grep -rl '"Web 管理"' . | xargs -r sed -i 's?"Web 管理"?"Web管理"?g'
-grep -rl '"管理权"' . | xargs -r sed -i 's?"管理权"?"改密码"?g'
-grep -rl '"带宽监控"' . | xargs -r sed -i 's?"带宽监控"?"监控"?g'
+grep -rl '"终端"' . 2>/dev/null | xargs -r sed -i 's?"终端"?"TTYD"?g' || true
+grep -rl '"TTYD 终端"' . 2>/dev/null | xargs -r sed -i 's?"TTYD 终端"?"TTYD"?g' || true
+grep -rl '"网络存储"' . 2>/dev/null | xargs -r sed -i 's?"网络存储"?"NAS"?g' || true
+grep -rl '"实时流量监测"' . 2>/dev/null | xargs -r sed -i 's?"实时流量监测"?"流量"?g' || true
+grep -rl '"KMS 服务器"' . 2>/dev/null | xargs -r sed -i 's?"KMS 服务器"?"KMS激活"?g' || true
+grep -rl '"USB 打印服务器"' . 2>/dev/null | xargs -r sed -i 's?"USB 打印服务器"?"打印服务"?g' || true
+grep -rl '"Web 管理"' . 2>/dev/null | xargs -r sed -i 's?"Web 管理"?"Web管理"?g' || true
+grep -rl '"管理权"' . 2>/dev/null | xargs -r sed -i 's?"管理权"?"改密码"?g' || true
+grep -rl '"带宽监控"' . 2>/dev/null | xargs -r sed -i 's?"带宽监控"?"监控"?g' || true
 
 
 # 整理固件包时候,删除您不想要的固件或者文件,让它不需要上传到Actions空间(根据编译机型变化,自行调整删除名称)

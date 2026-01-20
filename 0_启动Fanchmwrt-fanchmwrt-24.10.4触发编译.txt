@@ -1,0 +1,1083 @@
+﻿2026-01-20T06:22:00.1746900Z Current runner version: '2.331.0'
+2026-01-20T06:22:00.1779505Z ##[group]Runner Image Provisioner
+2026-01-20T06:22:00.1780992Z Hosted Compute Agent
+2026-01-20T06:22:00.1782005Z Version: 20251211.462
+2026-01-20T06:22:00.1783043Z Commit: 6cbad8c2bb55d58165063d031ccabf57e2d2db61
+2026-01-20T06:22:00.1784466Z Build Date: 2025-12-11T16:28:49Z
+2026-01-20T06:22:00.1785576Z Worker ID: {0fc65272-a354-4c47-a270-525ecd32d0ee}
+2026-01-20T06:22:00.1786782Z ##[endgroup]
+2026-01-20T06:22:00.1788418Z ##[group]Operating System
+2026-01-20T06:22:00.1789392Z Ubuntu
+2026-01-20T06:22:00.1790311Z 22.04.5
+2026-01-20T06:22:00.1791096Z LTS
+2026-01-20T06:22:00.1791967Z ##[endgroup]
+2026-01-20T06:22:00.1793032Z ##[group]Runner Image
+2026-01-20T06:22:00.1794039Z Image: ubuntu-22.04
+2026-01-20T06:22:00.1794916Z Version: 20260112.2.1
+2026-01-20T06:22:00.1796770Z Included Software: https://github.com/actions/runner-images/blob/ubuntu22/20260112.2/images/ubuntu/Ubuntu2204-Readme.md
+2026-01-20T06:22:00.1799779Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu22%2F20260112.2
+2026-01-20T06:22:00.1801623Z ##[endgroup]
+2026-01-20T06:22:00.1806605Z ##[group]GITHUB_TOKEN Permissions
+2026-01-20T06:22:00.1809993Z Actions: write
+2026-01-20T06:22:00.1810866Z ArtifactMetadata: write
+2026-01-20T06:22:00.1812110Z Attestations: write
+2026-01-20T06:22:00.1812993Z Checks: write
+2026-01-20T06:22:00.1813764Z Contents: write
+2026-01-20T06:22:00.1815278Z Deployments: write
+2026-01-20T06:22:00.1816165Z Discussions: write
+2026-01-20T06:22:00.1817346Z Issues: write
+2026-01-20T06:22:00.1818204Z Metadata: read
+2026-01-20T06:22:00.1819027Z Models: read
+2026-01-20T06:22:00.1819885Z Packages: write
+2026-01-20T06:22:00.1820761Z Pages: write
+2026-01-20T06:22:00.1821589Z PullRequests: write
+2026-01-20T06:22:00.1822746Z RepositoryProjects: write
+2026-01-20T06:22:00.1823684Z SecurityEvents: write
+2026-01-20T06:22:00.1824577Z Statuses: write
+2026-01-20T06:22:00.1825579Z ##[endgroup]
+2026-01-20T06:22:00.1828820Z Secret source: Actions
+2026-01-20T06:22:00.1829937Z Prepare workflow directory
+2026-01-20T06:22:00.2547286Z Prepare all required actions
+2026-01-20T06:22:00.2601533Z Getting action download info
+2026-01-20T06:22:00.6286666Z Download action repository 'actions/checkout@v4' (SHA:34e114876b0b11c390a56381ad16ebd13914f8d5)
+2026-01-20T06:22:00.8251977Z Download action repository 'xztxy/common@mishi' (SHA:d51e670c8456b26fcde015cd470791d1492dc5e0)
+2026-01-20T06:22:01.2035932Z Download action repository 'xztxy/common@message' (SHA:f92f668b4fbbe01331e56d2bce3fff5518a088cb)
+2026-01-20T06:22:01.5096424Z Download action repository 'xztxy/common@need' (SHA:70f5683aef562d30236f219d7bc4d8e26ba8c702)
+2026-01-20T06:22:01.7974087Z Download action repository 'danshui-git/delete-releases-workflows@main' (SHA:3a6ab40911712dcb6f4c540ccd3c1166f15835b5)
+2026-01-20T06:22:02.0653692Z Download action repository 'xztxy/common@trigger' (SHA:34f750cae6109ac7b4e6f9b868821675de541b87)
+2026-01-20T06:22:02.5199538Z Getting action download info
+2026-01-20T06:22:02.6633133Z Download action repository 'danshui-git/debugger-action@main' (SHA:bc075325920b866feeccbabce0408b3e43a8b00f)
+2026-01-20T06:22:02.9368747Z Download action repository 'actions/upload-artifact@main' (SHA:b7c566a772e6b6bfb58ed0dc250532a479d7789f)
+2026-01-20T06:22:03.1291412Z Complete job name: 启动"Fanchmwrt-fanchmwrt-24.10.4"触发编译
+2026-01-20T06:22:03.1932499Z ##[group]Run actions/checkout@v4
+2026-01-20T06:22:03.1933105Z with:
+2026-01-20T06:22:03.1933322Z   repository: xztxy/build-actions
+2026-01-20T06:22:03.1933757Z   token: ***
+2026-01-20T06:22:03.1933954Z   ssh-strict: true
+2026-01-20T06:22:03.1934161Z   ssh-user: git
+2026-01-20T06:22:03.1934368Z   persist-credentials: true
+2026-01-20T06:22:03.1934592Z   clean: true
+2026-01-20T06:22:03.1934788Z   sparse-checkout-cone-mode: true
+2026-01-20T06:22:03.1935033Z   fetch-depth: 1
+2026-01-20T06:22:03.1935221Z   fetch-tags: false
+2026-01-20T06:22:03.1935418Z   show-progress: true
+2026-01-20T06:22:03.1935623Z   lfs: false
+2026-01-20T06:22:03.1935801Z   submodules: false
+2026-01-20T06:22:03.1936254Z   set-safe-directory: true
+2026-01-20T06:22:03.1936717Z env:
+2026-01-20T06:22:03.1937136Z   GIT_REPOSITORY: xztxy/build-actions
+2026-01-20T06:22:03.1937543Z   REPO_TOKEN: ***
+2026-01-20T06:22:03.1937791Z   PUSH_PLUS_TOKEN: ***
+2026-01-20T06:22:03.1938132Z   TELEGRAM_BOT_TOKEN: ***
+2026-01-20T06:22:03.1938439Z   TELEGRAM_CHAT_ID: ***
+2026-01-20T06:22:03.1938651Z   TZ: Asia/Shanghai
+2026-01-20T06:22:03.1938840Z   FOLDER_NAME: Fanchmwrt
+2026-01-20T06:22:03.1939049Z   SOURCE_CODE: FANCHMWRT
+2026-01-20T06:22:03.1939249Z ##[endgroup]
+2026-01-20T06:22:03.3029021Z Syncing repository: xztxy/build-actions
+2026-01-20T06:22:03.3030378Z ##[group]Getting Git version info
+2026-01-20T06:22:03.3030937Z Working directory is '/home/runner/work/build-actions/build-actions'
+2026-01-20T06:22:03.3031768Z [command]/usr/bin/git version
+2026-01-20T06:22:03.4010885Z git version 2.52.0
+2026-01-20T06:22:03.4039509Z ##[endgroup]
+2026-01-20T06:22:03.4054999Z Temporarily overriding HOME='/home/runner/work/_temp/bc8fc9e4-48c0-4d23-aa88-eaa9a59e50b9' before making global git config changes
+2026-01-20T06:22:03.4056482Z Adding repository directory to the temporary git global config as a safe directory
+2026-01-20T06:22:03.4069292Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/build-actions/build-actions
+2026-01-20T06:22:03.4103431Z Deleting the contents of '/home/runner/work/build-actions/build-actions'
+2026-01-20T06:22:03.4107104Z ##[group]Initializing the repository
+2026-01-20T06:22:03.4111415Z [command]/usr/bin/git init /home/runner/work/build-actions/build-actions
+2026-01-20T06:22:03.4472287Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-01-20T06:22:03.4473187Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-01-20T06:22:03.4473815Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-01-20T06:22:03.4474284Z hint: call:
+2026-01-20T06:22:03.4474483Z hint:
+2026-01-20T06:22:03.4474787Z hint: 	git config --global init.defaultBranch <name>
+2026-01-20T06:22:03.4475181Z hint:
+2026-01-20T06:22:03.4475523Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-01-20T06:22:03.4476115Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-01-20T06:22:03.4476577Z hint:
+2026-01-20T06:22:03.4476804Z hint: 	git branch -m <name>
+2026-01-20T06:22:03.4477252Z hint:
+2026-01-20T06:22:03.4477658Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-01-20T06:22:03.4512796Z Initialized empty Git repository in /home/runner/work/build-actions/build-actions/.git/
+2026-01-20T06:22:03.4525473Z [command]/usr/bin/git remote add origin https://github.com/xztxy/build-actions
+2026-01-20T06:22:03.4619836Z ##[endgroup]
+2026-01-20T06:22:03.4620519Z ##[group]Disabling automatic garbage collection
+2026-01-20T06:22:03.4624180Z [command]/usr/bin/git config --local gc.auto 0
+2026-01-20T06:22:03.4653114Z ##[endgroup]
+2026-01-20T06:22:03.4653628Z ##[group]Setting up auth
+2026-01-20T06:22:03.4661934Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-01-20T06:22:03.4692085Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-01-20T06:22:03.6186558Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-01-20T06:22:03.6220052Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-01-20T06:22:03.6466239Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-01-20T06:22:03.6503421Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-01-20T06:22:03.6750964Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-01-20T06:22:03.6789461Z ##[endgroup]
+2026-01-20T06:22:03.6790204Z ##[group]Fetching the repository
+2026-01-20T06:22:03.6799046Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +534e58eddc36405a78e258d9f18faa445bf55eba:refs/remotes/origin/main
+2026-01-20T06:22:04.2452769Z From https://github.com/xztxy/build-actions
+2026-01-20T06:22:04.2453633Z  * [new ref]         534e58eddc36405a78e258d9f18faa445bf55eba -> origin/main
+2026-01-20T06:22:04.2521238Z ##[endgroup]
+2026-01-20T06:22:04.2521687Z ##[group]Determining the checkout info
+2026-01-20T06:22:04.2523963Z ##[endgroup]
+2026-01-20T06:22:04.2530798Z [command]/usr/bin/git sparse-checkout disable
+2026-01-20T06:22:04.2612852Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-01-20T06:22:04.2640617Z ##[group]Checking out the ref
+2026-01-20T06:22:04.2645107Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2026-01-20T06:22:04.6341601Z Switched to a new branch 'main'
+2026-01-20T06:22:04.6342524Z branch 'main' set up to track 'origin/main'.
+2026-01-20T06:22:04.6356578Z ##[endgroup]
+2026-01-20T06:22:04.6400013Z [command]/usr/bin/git log -1 --format=%H
+2026-01-20T06:22:04.6423951Z 534e58eddc36405a78e258d9f18faa445bf55eba
+2026-01-20T06:22:04.6670085Z ##[group]Run xztxy/common@mishi
+2026-01-20T06:22:04.6670389Z env:
+2026-01-20T06:22:04.6670587Z   GIT_REPOSITORY: xztxy/build-actions
+2026-01-20T06:22:04.6671143Z   REPO_TOKEN: ***
+2026-01-20T06:22:04.6671410Z   PUSH_PLUS_TOKEN: ***
+2026-01-20T06:22:04.6671735Z   TELEGRAM_BOT_TOKEN: ***
+2026-01-20T06:22:04.6671969Z   TELEGRAM_CHAT_ID: ***
+2026-01-20T06:22:04.6672166Z   TZ: Asia/Shanghai
+2026-01-20T06:22:04.6672360Z   FOLDER_NAME: Fanchmwrt
+2026-01-20T06:22:04.6672582Z   SOURCE_CODE: FANCHMWRT
+2026-01-20T06:22:04.6672780Z ##[endgroup]
+2026-01-20T06:22:04.6760405Z ##[group]Run cd "$GITHUB_WORKSPACE"
+2026-01-20T06:22:04.6760799Z [36;1mcd "$GITHUB_WORKSPACE"[0m
+2026-01-20T06:22:04.6761254Z [36;1mif [[ -z "***" ]]; then[0m
+2026-01-20T06:22:04.6761563Z [36;1m   echo -e "\033[31m 您没有设置仓库密匙，请按教程设置好密匙再来 \033[0m\n"[0m
+2026-01-20T06:22:04.6762022Z [36;1m   echo -e "\033[32m REPO_TOKEN密匙制作教程：https://git.io/jm.md \033[0m\n"[0m
+2026-01-20T06:22:04.6762446Z [36;1m   exit 1[0m
+2026-01-20T06:22:04.6762685Z [36;1mfi[0m
+2026-01-20T06:22:04.6762885Z [36;1m[[ -d "mishi" ]] && rm -rf mishi[0m
+2026-01-20T06:22:04.6763575Z [36;1mgit clone --depth=1 -b "main" ***github.com/xztxy/build-actions.git mishi[0m
+2026-01-20T06:22:04.6763981Z [36;1mif [ -z "$(ls -1 mishi)" ]; then[0m
+2026-01-20T06:22:04.6764310Z [36;1m   echo -e "\033[31m 您的密匙错误或已过期，或制作的时候勾选不正确，请按教程设置好密匙再来 \033[0m\n"[0m
+2026-01-20T06:22:04.6764754Z [36;1m   echo -e "\033[32m REPO_TOKEN密匙制作教程：https://git.io/jm.md \033[0m\n"[0m
+2026-01-20T06:22:04.6765108Z [36;1m   exit 1[0m
+2026-01-20T06:22:04.6765296Z [36;1mfi[0m
+2026-01-20T06:22:04.6765487Z [36;1m[[ -d "mishi" ]] && rm -rf mishi[0m
+2026-01-20T06:22:04.6765942Z [36;1mgit config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"[0m
+2026-01-20T06:22:04.6766447Z [36;1mgit config --global user.name "github-actions[bot]"[0m
+2026-01-20T06:22:04.6766786Z [36;1mecho "BENDI_VERSION=2" >> ${GITHUB_ENV}[0m
+2026-01-20T06:22:04.6855035Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-01-20T06:22:04.6855389Z env:
+2026-01-20T06:22:04.6855588Z   GIT_REPOSITORY: xztxy/build-actions
+2026-01-20T06:22:04.6855991Z   REPO_TOKEN: ***
+2026-01-20T06:22:04.6856251Z   PUSH_PLUS_TOKEN: ***
+2026-01-20T06:22:04.6856574Z   TELEGRAM_BOT_TOKEN: ***
+2026-01-20T06:22:04.6856808Z   TELEGRAM_CHAT_ID: ***
+2026-01-20T06:22:04.6857183Z   TZ: Asia/Shanghai
+2026-01-20T06:22:04.6857377Z   FOLDER_NAME: Fanchmwrt
+2026-01-20T06:22:04.6857584Z   SOURCE_CODE: FANCHMWRT
+2026-01-20T06:22:04.6857778Z ##[endgroup]
+2026-01-20T06:22:04.6979437Z Cloning into 'mishi'...
+2026-01-20T06:22:05.5245253Z ##[group]Run cd ${GITHUB_WORKSPACE}
+2026-01-20T06:22:05.5245826Z [36;1mcd ${GITHUB_WORKSPACE}[0m
+2026-01-20T06:22:05.5246045Z [36;1m[0m
+2026-01-20T06:22:05.5246227Z [36;1mif [[ -d "build" ]]; then[0m
+2026-01-20T06:22:05.5246472Z [36;1m   rm -rf operates[0m
+2026-01-20T06:22:05.5246749Z [36;1m   cp -Rf build ${GITHUB_WORKSPACE}/operates[0m
+2026-01-20T06:22:05.5247380Z [36;1m   COMPILE_PATH="$GITHUB_WORKSPACE/operates/${FOLDER_NAME}"[0m
+2026-01-20T06:22:05.5247712Z [36;1mfi[0m
+2026-01-20T06:22:05.5247872Z [36;1m[0m
+2026-01-20T06:22:05.5248138Z [36;1mif [[ "workflow_dispatch" == "push" ]] && [[ "" != "null" ]]; then[0m
+2026-01-20T06:22:05.5248480Z [36;1m  #触发启动[0m
+2026-01-20T06:22:05.5248751Z [36;1m   if [[ -f "${COMPILE_PATH}/relevance/settings.ini" ]]; then[0m
+2026-01-20T06:22:05.5249129Z [36;1m      source ${COMPILE_PATH}/relevance/settings.ini[0m
+2026-01-20T06:22:05.5249493Z [36;1m      echo "ERRUN_NUMBER=${ERRUN_NUMBER}" >> ${GITHUB_ENV}[0m
+2026-01-20T06:22:05.5249789Z [36;1m   fi[0m
+2026-01-20T06:22:05.5250071Z [36;1melif [[ "workflow_dispatch" == "workflow_dispatch" ]]; then[0m
+2026-01-20T06:22:05.5250390Z [36;1m   #手动启动[0m
+2026-01-20T06:22:05.5250631Z [36;1m   if [ -f "${COMPILE_PATH}/settings.ini" ]; then[0m
+2026-01-20T06:22:05.5251108Z [36;1m      SOURCE_CODE="$(grep '^SOURCE_CODE=' "${COMPILE_PATH}/settings.ini" | awk -F'"' '{print $2}')"[0m
+2026-01-20T06:22:05.5252002Z [36;1m      COMPILATION_INFORMATION="$(grep '^COMPILATION_INFORMATION=' "${COMPILE_PATH}/settings.ini" | awk -F'"' '{print $2}')"[0m
+2026-01-20T06:22:05.5252531Z [36;1m   fi[0m
+2026-01-20T06:22:05.5252729Z [36;1m   REPO_BRANCH="fanchmwrt-24.10.4"[0m
+2026-01-20T06:22:05.5252993Z [36;1m   CONFIG_FILE="x86_64"[0m
+2026-01-20T06:22:05.5253233Z [36;1m   INFORMATION_NOTICE="关闭"[0m
+2026-01-20T06:22:05.5253477Z [36;1m   KEEP_WORKFLOWS="30"[0m
+2026-01-20T06:22:05.5253707Z [36;1m   KEEP_RELEASES="30"[0m
+2026-01-20T06:22:05.5253926Z [36;1m   SSH_ACTION="false"[0m
+2026-01-20T06:22:05.5254148Z [36;1m   UPLOAD_FIRMWARE="true"[0m
+2026-01-20T06:22:05.5254397Z [36;1m   UPLOAD_RELEASE="false"[0m
+2026-01-20T06:22:05.5254638Z [36;1m   CACHEWRTBUILD_SWITCH="true"[0m
+2026-01-20T06:22:05.5254903Z [36;1m   UPDATE_FIRMWARE_ONLINE="true"[0m
+2026-01-20T06:22:05.5255146Z [36;1melse[0m
+2026-01-20T06:22:05.5255312Z [36;1m   #其他启动[0m
+2026-01-20T06:22:05.5255554Z [36;1m   if [[ -f "${COMPILE_PATH}/settings.ini" ]]; then[0m
+2026-01-20T06:22:05.5255886Z [36;1m      source ${COMPILE_PATH}/settings.ini[0m
+2026-01-20T06:22:05.5256148Z [36;1m   fi[0m
+2026-01-20T06:22:05.5256317Z [36;1mfi[0m
+2026-01-20T06:22:05.5256473Z [36;1m[0m
+2026-01-20T06:22:05.5256698Z [36;1mecho "SOURCE_CODE=${SOURCE_CODE}" >> ${GITHUB_ENV}[0m
+2026-01-20T06:22:05.5257251Z [36;1mecho "REPO_BRANCH=${REPO_BRANCH}" >> ${GITHUB_ENV}[0m
+2026-01-20T06:22:05.5257651Z [36;1mecho "INFORMATION_NOTICE=${INFORMATION_NOTICE}" >> ${GITHUB_ENV}[0m
+2026-01-20T06:22:05.5258080Z [36;1mecho "KEEP_WORKFLOWS=${KEEP_WORKFLOWS}" >> ${GITHUB_ENV}[0m
+2026-01-20T06:22:05.5258473Z [36;1mecho "KEEP_RELEASES=${KEEP_RELEASES}" >> ${GITHUB_ENV}[0m
+2026-01-20T06:22:05.5258835Z [36;1mecho "SSH_ACTION=${SSH_ACTION}" >> ${GITHUB_ENV}[0m
+2026-01-20T06:22:05.5259195Z [36;1mecho "UPLOAD_FIRMWARE=${UPLOAD_FIRMWARE}" >> ${GITHUB_ENV}[0m
+2026-01-20T06:22:05.5259592Z [36;1mecho "UPLOAD_RELEASE=${UPLOAD_RELEASE}" >> ${GITHUB_ENV}[0m
+2026-01-20T06:22:05.5260020Z [36;1mecho "CACHEWRTBUILD_SWITCH=${CACHEWRTBUILD_SWITCH}" >> ${GITHUB_ENV}[0m
+2026-01-20T06:22:05.5260507Z [36;1mecho "UPDATE_FIRMWARE_ONLINE=${UPDATE_FIRMWARE_ONLINE}" >> ${GITHUB_ENV}[0m
+2026-01-20T06:22:05.5261028Z [36;1mecho "GITHUB_LINK=https://github.com/xztxy/build-actions" >> ${GITHUB_ENV}[0m
+2026-01-20T06:22:05.5261449Z [36;1mecho "GIT_ACTOR=xztxy" >> ${GITHUB_ENV}[0m
+2026-01-20T06:22:05.5261801Z [36;1mecho "WAREHOUSE_MAN=${GIT_REPOSITORY##*/}" >> ${GITHUB_ENV}[0m
+2026-01-20T06:22:05.5262144Z [36;1mecho "RUN_NUMBER=55" >> ${GITHUB_ENV}[0m
+2026-01-20T06:22:05.5262434Z [36;1mecho "GIT_REFNAME=main" >> ${GITHUB_ENV}[0m
+2026-01-20T06:22:05.5262988Z [36;1mecho "COMPILATION_INFORMATION=${COMPILATION_INFORMATION}" >> ${GITHUB_ENV}[0m
+2026-01-20T06:22:05.5263429Z [36;1mecho "CONFIG_FILE=${CONFIG_FILE}" >> ${GITHUB_ENV}[0m
+2026-01-20T06:22:05.5263717Z [36;1m[0m
+2026-01-20T06:22:05.5263966Z [36;1mecho "HOME_PATH=$GITHUB_WORKSPACE/openwrt" >> ${GITHUB_ENV}[0m
+2026-01-20T06:22:05.5264413Z [36;1mecho "OPERATES_PATH=$GITHUB_WORKSPACE/operates" >> ${GITHUB_ENV}[0m
+2026-01-20T06:22:05.5264832Z [36;1mecho "COMPILE_PATH=${COMPILE_PATH}" >> ${GITHUB_ENV}[0m
+2026-01-20T06:22:05.5265200Z [36;1mecho "BUILD_DIY=${COMPILE_PATH}/diy" >> ${GITHUB_ENV}[0m
+2026-01-20T06:22:05.5265576Z [36;1mecho "BUILD_FILES=${COMPILE_PATH}/files" >> ${GITHUB_ENV}[0m
+2026-01-20T06:22:05.5265985Z [36;1mecho "BUILD_PATCHES=${COMPILE_PATH}/patches" >> ${GITHUB_ENV}[0m
+2026-01-20T06:22:05.5266414Z [36;1mecho "BUILD_PARTSH=${COMPILE_PATH}/diy-part.sh" >> ${GITHUB_ENV}[0m
+2026-01-20T06:22:05.5266861Z [36;1mecho "BUILD_SETTINGS=${COMPILE_PATH}/settings.ini" >> ${GITHUB_ENV}[0m
+2026-01-20T06:22:05.5267561Z [36;1mecho "MYCONFIG_FILE=${COMPILE_PATH}/seed/${CONFIG_FILE}" >> ${GITHUB_ENV}[0m
+2026-01-20T06:22:05.5326465Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-01-20T06:22:05.5326828Z env:
+2026-01-20T06:22:05.5327251Z   GIT_REPOSITORY: xztxy/build-actions
+2026-01-20T06:22:05.5327848Z   REPO_TOKEN: ***
+2026-01-20T06:22:05.5328107Z   PUSH_PLUS_TOKEN: ***
+2026-01-20T06:22:05.5328416Z   TELEGRAM_BOT_TOKEN: ***
+2026-01-20T06:22:05.5328637Z   TELEGRAM_CHAT_ID: ***
+2026-01-20T06:22:05.5328836Z   TZ: Asia/Shanghai
+2026-01-20T06:22:05.5329030Z   FOLDER_NAME: Fanchmwrt
+2026-01-20T06:22:05.5329235Z   SOURCE_CODE: FANCHMWRT
+2026-01-20T06:22:05.5329426Z   BENDI_VERSION: 2
+2026-01-20T06:22:05.5329600Z ##[endgroup]
+2026-01-20T06:22:05.5944743Z ##[group]Run cd ${GITHUB_WORKSPACE}
+2026-01-20T06:22:05.5945049Z [36;1mcd ${GITHUB_WORKSPACE}[0m
+2026-01-20T06:22:05.5945281Z [36;1mcase "true" in[0m
+2026-01-20T06:22:05.5945500Z [36;1m  *"false"*)[0m
+2026-01-20T06:22:05.5945791Z [36;1m    echo "CACHEWRTBUILD_SWITCH=true" >> "$GITHUB_ENV"[0m
+2026-01-20T06:22:05.5946162Z [36;1m    echo "CLEAR_CACHEWRTBUILD=true" >> "$GITHUB_ENV"[0m
+2026-01-20T06:22:05.5946454Z [36;1m    ;;[0m
+2026-01-20T06:22:05.5946629Z [36;1m  *)[0m
+2026-01-20T06:22:05.5946882Z [36;1m    echo "CACHEWRTBUILD_SWITCH=true" >> "$GITHUB_ENV"[0m
+2026-01-20T06:22:05.5947539Z [36;1m    ;;[0m
+2026-01-20T06:22:05.5947727Z [36;1mesac[0m
+2026-01-20T06:22:05.5947894Z [36;1m[0m
+2026-01-20T06:22:05.5948058Z [36;1mcase "关闭" in[0m
+2026-01-20T06:22:05.5948300Z [36;1m  *"tg"*|*"TG"*|*"telegram"*|*"Telegram"*)[0m
+2026-01-20T06:22:05.5948627Z [36;1m    echo "INFORMATION_NOTICE=TG" >> "$GITHUB_ENV"[0m
+2026-01-20T06:22:05.5948923Z [36;1m    ;;[0m
+2026-01-20T06:22:05.5949157Z [36;1m  *"push"*|*"PUSH"*|*"pushplus"*|*"Pushplus"*)[0m
+2026-01-20T06:22:05.5949495Z [36;1m    echo "INFORMATION_NOTICE=PUSH" >> "$GITHUB_ENV"[0m
+2026-01-20T06:22:05.5949773Z [36;1m    ;;[0m
+2026-01-20T06:22:05.5949959Z [36;1m  *)[0m
+2026-01-20T06:22:05.5950186Z [36;1m    echo "INFORMATION_NOTICE=false" >> "$GITHUB_ENV"[0m
+2026-01-20T06:22:05.5950467Z [36;1m    ;;[0m
+2026-01-20T06:22:05.5950632Z [36;1mesac[0m
+2026-01-20T06:22:05.6009921Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-01-20T06:22:05.6010257Z env:
+2026-01-20T06:22:05.6010466Z   GIT_REPOSITORY: xztxy/build-actions
+2026-01-20T06:22:05.6010907Z   REPO_TOKEN: ***
+2026-01-20T06:22:05.6011159Z   PUSH_PLUS_TOKEN: ***
+2026-01-20T06:22:05.6011478Z   TELEGRAM_BOT_TOKEN: ***
+2026-01-20T06:22:05.6011708Z   TELEGRAM_CHAT_ID: ***
+2026-01-20T06:22:05.6011908Z   TZ: Asia/Shanghai
+2026-01-20T06:22:05.6012096Z   FOLDER_NAME: Fanchmwrt
+2026-01-20T06:22:05.6012302Z   SOURCE_CODE: FANCHMWRT
+2026-01-20T06:22:05.6012501Z   BENDI_VERSION: 2
+2026-01-20T06:22:05.6012691Z   REPO_BRANCH: fanchmwrt-24.10.4
+2026-01-20T06:22:05.6012923Z   INFORMATION_NOTICE: 关闭
+2026-01-20T06:22:05.6013124Z   KEEP_WORKFLOWS: 30
+2026-01-20T06:22:05.6013312Z   KEEP_RELEASES: 30
+2026-01-20T06:22:05.6013679Z   SSH_ACTION: false
+2026-01-20T06:22:05.6013865Z   UPLOAD_FIRMWARE: true
+2026-01-20T06:22:05.6014057Z   UPLOAD_RELEASE: false
+2026-01-20T06:22:05.6014257Z   CACHEWRTBUILD_SWITCH: true
+2026-01-20T06:22:05.6014480Z   UPDATE_FIRMWARE_ONLINE: true
+2026-01-20T06:22:05.6014762Z   GITHUB_LINK: https://github.com/xztxy/build-actions
+2026-01-20T06:22:05.6015061Z   GIT_ACTOR: xztxy
+2026-01-20T06:22:05.6015247Z   WAREHOUSE_MAN: build-actions
+2026-01-20T06:22:05.6015458Z   RUN_NUMBER: 55
+2026-01-20T06:22:05.6015638Z   GIT_REFNAME: main
+2026-01-20T06:22:05.6015827Z   COMPILATION_INFORMATION: true
+2026-01-20T06:22:05.6016047Z   CONFIG_FILE: x86_64
+2026-01-20T06:22:05.6016326Z   HOME_PATH: /home/runner/work/build-actions/build-actions/openwrt
+2026-01-20T06:22:05.6016767Z   OPERATES_PATH: /home/runner/work/build-actions/build-actions/operates
+2026-01-20T06:22:05.6017476Z   COMPILE_PATH: /home/runner/work/build-actions/build-actions/operates/Fanchmwrt
+2026-01-20T06:22:05.6017979Z   BUILD_DIY: /home/runner/work/build-actions/build-actions/operates/Fanchmwrt/diy
+2026-01-20T06:22:05.6018503Z   BUILD_FILES: /home/runner/work/build-actions/build-actions/operates/Fanchmwrt/files
+2026-01-20T06:22:05.6019064Z   BUILD_PATCHES: /home/runner/work/build-actions/build-actions/operates/Fanchmwrt/patches
+2026-01-20T06:22:05.6019777Z   BUILD_PARTSH: /home/runner/work/build-actions/build-actions/operates/Fanchmwrt/diy-part.sh
+2026-01-20T06:22:05.6020380Z   BUILD_SETTINGS: /home/runner/work/build-actions/build-actions/operates/Fanchmwrt/settings.ini
+2026-01-20T06:22:05.6020966Z   MYCONFIG_FILE: /home/runner/work/build-actions/build-actions/operates/Fanchmwrt/seed/x86_64
+2026-01-20T06:22:05.6021380Z ##[endgroup]
+2026-01-20T06:22:05.6145334Z ##[group]Run cd ${GITHUB_WORKSPACE}
+2026-01-20T06:22:05.6145661Z [36;1mcd ${GITHUB_WORKSPACE}[0m
+2026-01-20T06:22:05.6145923Z [36;1mLINSHI_COMMON="/tmp/common"[0m
+2026-01-20T06:22:05.6146245Z [36;1m[ -d "${LINSHI_COMMON}" ] && rm -rf "${LINSHI_COMMON}"[0m
+2026-01-20T06:22:05.6146847Z [36;1mif ! git clone -q --single-branch --depth=1 --branch=main https://github.com/xztxy/common "${LINSHI_COMMON}"; then[0m
+2026-01-20T06:22:05.6147733Z [36;1m    git clone --depth=1 https://github.com/xztxy/common "${LINSHI_COMMON}"[0m
+2026-01-20T06:22:05.6148112Z [36;1mfi[0m
+2026-01-20T06:22:05.6148516Z [36;1mif [ -f "${LINSHI_COMMON}/custom/first.sh" ] && grep -qE "bash" "${LINSHI_COMMON}/custom/first.sh"; then[0m
+2026-01-20T06:22:05.6148992Z [36;1m   chmod -R +x "${LINSHI_COMMON}"[0m
+2026-01-20T06:22:05.6149293Z [36;1m   source "${LINSHI_COMMON}/custom/first.sh"[0m
+2026-01-20T06:22:05.6149565Z [36;1melse[0m
+2026-01-20T06:22:05.6149794Z [36;1m   echo -e "\033[31m 对比版本号文件下载失败，请检查网络再来 \033[0m\n"[0m
+2026-01-20T06:22:05.6150077Z [36;1m   exit 1[0m
+2026-01-20T06:22:05.6150251Z [36;1mfi[0m
+2026-01-20T06:22:05.6207720Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-01-20T06:22:05.6208044Z env:
+2026-01-20T06:22:05.6208229Z   GIT_REPOSITORY: xztxy/build-actions
+2026-01-20T06:22:05.6208658Z   REPO_TOKEN: ***
+2026-01-20T06:22:05.6208938Z   PUSH_PLUS_TOKEN: ***
+2026-01-20T06:22:05.6209262Z   TELEGRAM_BOT_TOKEN: ***
+2026-01-20T06:22:05.6209498Z   TELEGRAM_CHAT_ID: ***
+2026-01-20T06:22:05.6209709Z   TZ: Asia/Shanghai
+2026-01-20T06:22:05.6209903Z   FOLDER_NAME: Fanchmwrt
+2026-01-20T06:22:05.6210111Z   SOURCE_CODE: FANCHMWRT
+2026-01-20T06:22:05.6210319Z   BENDI_VERSION: 2
+2026-01-20T06:22:05.6210518Z   REPO_BRANCH: fanchmwrt-24.10.4
+2026-01-20T06:22:05.6210756Z   INFORMATION_NOTICE: false
+2026-01-20T06:22:05.6210973Z   KEEP_WORKFLOWS: 30
+2026-01-20T06:22:05.6211165Z   KEEP_RELEASES: 30
+2026-01-20T06:22:05.6211339Z   SSH_ACTION: false
+2026-01-20T06:22:05.6211525Z   UPLOAD_FIRMWARE: true
+2026-01-20T06:22:05.6211724Z   UPLOAD_RELEASE: false
+2026-01-20T06:22:05.6211925Z   CACHEWRTBUILD_SWITCH: true
+2026-01-20T06:22:05.6212149Z   UPDATE_FIRMWARE_ONLINE: true
+2026-01-20T06:22:05.6212424Z   GITHUB_LINK: https://github.com/xztxy/build-actions
+2026-01-20T06:22:05.6212708Z   GIT_ACTOR: xztxy
+2026-01-20T06:22:05.6213077Z   WAREHOUSE_MAN: build-actions
+2026-01-20T06:22:05.6213293Z   RUN_NUMBER: 55
+2026-01-20T06:22:05.6213472Z   GIT_REFNAME: main
+2026-01-20T06:22:05.6213664Z   COMPILATION_INFORMATION: true
+2026-01-20T06:22:05.6213879Z   CONFIG_FILE: x86_64
+2026-01-20T06:22:05.6214160Z   HOME_PATH: /home/runner/work/build-actions/build-actions/openwrt
+2026-01-20T06:22:05.6214593Z   OPERATES_PATH: /home/runner/work/build-actions/build-actions/operates
+2026-01-20T06:22:05.6215067Z   COMPILE_PATH: /home/runner/work/build-actions/build-actions/operates/Fanchmwrt
+2026-01-20T06:22:05.6215563Z   BUILD_DIY: /home/runner/work/build-actions/build-actions/operates/Fanchmwrt/diy
+2026-01-20T06:22:05.6216076Z   BUILD_FILES: /home/runner/work/build-actions/build-actions/operates/Fanchmwrt/files
+2026-01-20T06:22:05.6216621Z   BUILD_PATCHES: /home/runner/work/build-actions/build-actions/operates/Fanchmwrt/patches
+2026-01-20T06:22:05.6217509Z   BUILD_PARTSH: /home/runner/work/build-actions/build-actions/operates/Fanchmwrt/diy-part.sh
+2026-01-20T06:22:05.6218122Z   BUILD_SETTINGS: /home/runner/work/build-actions/build-actions/operates/Fanchmwrt/settings.ini
+2026-01-20T06:22:05.6218723Z   MYCONFIG_FILE: /home/runner/work/build-actions/build-actions/operates/Fanchmwrt/seed/x86_64
+2026-01-20T06:22:05.6219140Z ##[endgroup]
+2026-01-20T06:22:06.0712100Z ##[group]Run cd ${GITHUB_WORKSPACE}
+2026-01-20T06:22:06.0712430Z [36;1mcd ${GITHUB_WORKSPACE}[0m
+2026-01-20T06:22:06.0712781Z [36;1mif [ -f "${COMMON_SH}" ] && grep -qE "bash" "${COMMON_SH}"; then[0m
+2026-01-20T06:22:06.0713141Z [36;1m   chmod +x "${COMMON_SH}"[0m
+2026-01-20T06:22:06.0713417Z [36;1m   bash $COMMON_SH Diy_menu6[0m
+2026-01-20T06:22:06.0713672Z [36;1melse[0m
+2026-01-20T06:22:06.0713917Z [36;1m   echo -e "\033[31m 对比版本号文件下载失败，请检查网络再来 \033[0m\n"[0m
+2026-01-20T06:22:06.0714219Z [36;1m   exit 1[0m
+2026-01-20T06:22:06.0714410Z [36;1mfi[0m
+2026-01-20T06:22:06.0774624Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-01-20T06:22:06.0775008Z env:
+2026-01-20T06:22:06.0775223Z   GIT_REPOSITORY: xztxy/build-actions
+2026-01-20T06:22:06.0775712Z   REPO_TOKEN: ***
+2026-01-20T06:22:06.0775996Z   PUSH_PLUS_TOKEN: ***
+2026-01-20T06:22:06.0776345Z   TELEGRAM_BOT_TOKEN: ***
+2026-01-20T06:22:06.0776596Z   TELEGRAM_CHAT_ID: ***
+2026-01-20T06:22:06.0776821Z   TZ: Asia/Shanghai
+2026-01-20T06:22:06.0777299Z   FOLDER_NAME: Fanchmwrt
+2026-01-20T06:22:06.0777536Z   SOURCE_CODE: FANCHMWRT
+2026-01-20T06:22:06.0777751Z   BENDI_VERSION: 2
+2026-01-20T06:22:06.0777998Z   REPO_BRANCH: fanchmwrt-24.10.4
+2026-01-20T06:22:06.0778277Z   INFORMATION_NOTICE: false
+2026-01-20T06:22:06.0778517Z   KEEP_WORKFLOWS: 30
+2026-01-20T06:22:06.0778728Z   KEEP_RELEASES: 30
+2026-01-20T06:22:06.0778933Z   SSH_ACTION: false
+2026-01-20T06:22:06.0779132Z   UPLOAD_FIRMWARE: true
+2026-01-20T06:22:06.0779357Z   UPLOAD_RELEASE: false
+2026-01-20T06:22:06.0779589Z   CACHEWRTBUILD_SWITCH: true
+2026-01-20T06:22:06.0779843Z   UPDATE_FIRMWARE_ONLINE: true
+2026-01-20T06:22:06.0780153Z   GITHUB_LINK: https://github.com/xztxy/build-actions
+2026-01-20T06:22:06.0780486Z   GIT_ACTOR: xztxy
+2026-01-20T06:22:06.0780702Z   WAREHOUSE_MAN: build-actions
+2026-01-20T06:22:06.0780947Z   RUN_NUMBER: 55
+2026-01-20T06:22:06.0781146Z   GIT_REFNAME: main
+2026-01-20T06:22:06.0781365Z   COMPILATION_INFORMATION: true
+2026-01-20T06:22:06.0781610Z   CONFIG_FILE: x86_64
+2026-01-20T06:22:06.0781934Z   HOME_PATH: /home/runner/work/build-actions/build-actions/openwrt
+2026-01-20T06:22:06.0782426Z   OPERATES_PATH: /home/runner/work/build-actions/build-actions/operates
+2026-01-20T06:22:06.0782967Z   COMPILE_PATH: /home/runner/work/build-actions/build-actions/operates/Fanchmwrt
+2026-01-20T06:22:06.0783546Z   BUILD_DIY: /home/runner/work/build-actions/build-actions/operates/Fanchmwrt/diy
+2026-01-20T06:22:06.0784140Z   BUILD_FILES: /home/runner/work/build-actions/build-actions/operates/Fanchmwrt/files
+2026-01-20T06:22:06.0784803Z   BUILD_PATCHES: /home/runner/work/build-actions/build-actions/operates/Fanchmwrt/patches
+2026-01-20T06:22:06.0785651Z   BUILD_PARTSH: /home/runner/work/build-actions/build-actions/operates/Fanchmwrt/diy-part.sh
+2026-01-20T06:22:06.0786348Z   BUILD_SETTINGS: /home/runner/work/build-actions/build-actions/operates/Fanchmwrt/settings.ini
+2026-01-20T06:22:06.0787284Z   MYCONFIG_FILE: /home/runner/work/build-actions/build-actions/operates/Fanchmwrt/seed/x86_64
+2026-01-20T06:22:06.0787835Z   LINSHI_COMMON: /tmp/common
+2026-01-20T06:22:06.0788094Z   DIY_PT1_SH: /tmp/common/Fanchmwrt/diy-part.sh
+2026-01-20T06:22:06.0788406Z   DIY_PT2_SH: /tmp/common/Fanchmwrt/diy2-part.sh
+2026-01-20T06:22:06.0788690Z   COMMON_SH: /tmp/common/common.sh
+2026-01-20T06:22:06.0788931Z   UPGRADE_SH: /tmp/common/upgrade.sh
+2026-01-20T06:22:06.0789177Z   CONFIG_TXT: /tmp/common/config.txt
+2026-01-20T06:22:06.0789429Z   OpenClash_branch: 0
+2026-01-20T06:22:06.0789622Z   Mandatory_theme: argon
+2026-01-20T06:22:06.0789827Z   Default_theme: argon
+2026-01-20T06:22:06.0790019Z ##[endgroup]
+2026-01-20T06:22:06.1166581Z ##[group]Run sudo -E apt-get -qq update -y
+2026-01-20T06:22:06.1167193Z [36;1msudo -E apt-get -qq update -y[0m
+2026-01-20T06:22:06.1167864Z [36;1msudo -E apt-get -qq install -y gawk git gettext libssl-dev xsltproc zip git-core wget curl grep python2.7 python3 python3-pip libpython3-dev snapd[0m
+2026-01-20T06:22:06.1168520Z [36;1msudo snap install jq[0m
+2026-01-20T06:22:06.1168777Z [36;1msudo timedatectl set-timezone "$TZ"[0m
+2026-01-20T06:22:06.1169059Z [36;1msudo mkdir -p /[0m
+2026-01-20T06:22:06.1169288Z [36;1msudo chown $USER:$GROUPS /[0m
+2026-01-20T06:22:06.1229385Z shell: /usr/bin/bash -e {0}
+2026-01-20T06:22:06.1229624Z env:
+2026-01-20T06:22:06.1229824Z   GIT_REPOSITORY: xztxy/build-actions
+2026-01-20T06:22:06.1230319Z   REPO_TOKEN: ***
+2026-01-20T06:22:06.1230570Z   PUSH_PLUS_TOKEN: ***
+2026-01-20T06:22:06.1230885Z   TELEGRAM_BOT_TOKEN: ***
+2026-01-20T06:22:06.1231122Z   TELEGRAM_CHAT_ID: ***
+2026-01-20T06:22:06.1231330Z   TZ: Asia/Shanghai
+2026-01-20T06:22:06.1231563Z   FOLDER_NAME: Fanchmwrt
+2026-01-20T06:22:06.1231774Z   SOURCE_CODE: FANCHMWRT
+2026-01-20T06:22:06.1231977Z   BENDI_VERSION: 2
+2026-01-20T06:22:06.1232172Z   REPO_BRANCH: fanchmwrt-24.10.4
+2026-01-20T06:22:06.1232412Z   INFORMATION_NOTICE: false
+2026-01-20T06:22:06.1232634Z   KEEP_WORKFLOWS: 30
+2026-01-20T06:22:06.1232827Z   KEEP_RELEASES: 30
+2026-01-20T06:22:06.1233003Z   SSH_ACTION: false
+2026-01-20T06:22:06.1233189Z   UPLOAD_FIRMWARE: true
+2026-01-20T06:22:06.1233387Z   UPLOAD_RELEASE: false
+2026-01-20T06:22:06.1233590Z   CACHEWRTBUILD_SWITCH: true
+2026-01-20T06:22:06.1233815Z   UPDATE_FIRMWARE_ONLINE: true
+2026-01-20T06:22:06.1234098Z   GITHUB_LINK: https://github.com/xztxy/build-actions
+2026-01-20T06:22:06.1234392Z   GIT_ACTOR: xztxy
+2026-01-20T06:22:06.1234591Z   WAREHOUSE_MAN: build-actions
+2026-01-20T06:22:06.1234806Z   RUN_NUMBER: 55
+2026-01-20T06:22:06.1234984Z   GIT_REFNAME: main
+2026-01-20T06:22:06.1235178Z   COMPILATION_INFORMATION: true
+2026-01-20T06:22:06.1235397Z   CONFIG_FILE: x86_64
+2026-01-20T06:22:06.1235679Z   HOME_PATH: /home/runner/work/build-actions/build-actions/openwrt
+2026-01-20T06:22:06.1236125Z   OPERATES_PATH: /home/runner/work/build-actions/build-actions/operates
+2026-01-20T06:22:06.1236602Z   COMPILE_PATH: /home/runner/work/build-actions/build-actions/operates/Fanchmwrt
+2026-01-20T06:22:06.1237470Z   BUILD_DIY: /home/runner/work/build-actions/build-actions/operates/Fanchmwrt/diy
+2026-01-20T06:22:06.1237993Z   BUILD_FILES: /home/runner/work/build-actions/build-actions/operates/Fanchmwrt/files
+2026-01-20T06:22:06.1238541Z   BUILD_PATCHES: /home/runner/work/build-actions/build-actions/operates/Fanchmwrt/patches
+2026-01-20T06:22:06.1239109Z   BUILD_PARTSH: /home/runner/work/build-actions/build-actions/operates/Fanchmwrt/diy-part.sh
+2026-01-20T06:22:06.1239704Z   BUILD_SETTINGS: /home/runner/work/build-actions/build-actions/operates/Fanchmwrt/settings.ini
+2026-01-20T06:22:06.1240301Z   MYCONFIG_FILE: /home/runner/work/build-actions/build-actions/operates/Fanchmwrt/seed/x86_64
+2026-01-20T06:22:06.1240735Z   LINSHI_COMMON: /tmp/common
+2026-01-20T06:22:06.1241173Z   DIY_PT1_SH: /tmp/common/Fanchmwrt/diy-part.sh
+2026-01-20T06:22:06.1241483Z   DIY_PT2_SH: /tmp/common/Fanchmwrt/diy2-part.sh
+2026-01-20T06:22:06.1241763Z   COMMON_SH: /tmp/common/common.sh
+2026-01-20T06:22:06.1241999Z   UPGRADE_SH: /tmp/common/upgrade.sh
+2026-01-20T06:22:06.1242248Z   CONFIG_TXT: /tmp/common/config.txt
+2026-01-20T06:22:06.1242493Z   OpenClash_branch: 0
+2026-01-20T06:22:06.1242694Z   Mandatory_theme: argon
+2026-01-20T06:22:06.1242901Z   Default_theme: argon
+2026-01-20T06:22:06.1243136Z   REPO_URL: https://github.com/fanchmwrt/fanchmwrt
+2026-01-20T06:22:06.1243420Z   SOURCE: Fanchmwrt
+2026-01-20T06:22:06.1243607Z   SOURCE_OWNER: fanchmwrt
+2026-01-20T06:22:06.1243818Z   DISTRIB_SOURCECODE: fanchmwrt
+2026-01-20T06:22:06.1244035Z   LUCI_EDITION: 24.10.4
+2026-01-20T06:22:06.1244481Z   GENE_PATH: /home/runner/work/build-actions/build-actions/openwrt/package/base-files/files/bin/config_generate
+2026-01-20T06:22:06.1245337Z   FILES_PATH: /home/runner/work/build-actions/build-actions/openwrt/package/base-files/files/etc/shadow
+2026-01-20T06:22:06.1246026Z   DELETE: /home/runner/work/build-actions/build-actions/openwrt/package/base-files/files/etc/deletefile
+2026-01-20T06:22:06.1246718Z   DEFAULT_PATH: /home/runner/work/build-actions/build-actions/openwrt/package/auto-scripts/files/99-first-run
+2026-01-20T06:22:06.1247908Z   KEEPD_PATH: /home/runner/work/build-actions/build-actions/openwrt/package/base-files/files/lib/upgrade/keep.d/base-files-essential
+2026-01-20T06:22:06.1248488Z   CLEAR_PATH: /tmp/Clear
+2026-01-20T06:22:06.1248701Z   UPGRADE_DATE: 1768890126
+2026-01-20T06:22:06.1248905Z   GUJIAN_DATE: 01.20
+2026-01-20T06:22:06.1249222Z   LICENSES_DOC: /home/runner/work/build-actions/build-actions/openwrt/LICENSES/doc
+2026-01-20T06:22:06.1249617Z   DEBIAN_FRONTEND: noninteractive
+2026-01-20T06:22:06.1249846Z ##[endgroup]
+2026-01-20T06:22:13.4514645Z Selecting previously unselected package libpython2.7-minimal:amd64.
+2026-01-20T06:22:13.5229861Z (Reading database ... 
+2026-01-20T06:22:13.5230350Z (Reading database ... 5%
+2026-01-20T06:22:13.5230701Z (Reading database ... 10%
+2026-01-20T06:22:13.5231050Z (Reading database ... 15%
+2026-01-20T06:22:13.5231414Z (Reading database ... 20%
+2026-01-20T06:22:13.5231776Z (Reading database ... 25%
+2026-01-20T06:22:13.5232108Z (Reading database ... 30%
+2026-01-20T06:22:13.5232434Z (Reading database ... 35%
+2026-01-20T06:22:13.5232765Z (Reading database ... 40%
+2026-01-20T06:22:13.5233124Z (Reading database ... 45%
+2026-01-20T06:22:13.5233503Z (Reading database ... 50%
+2026-01-20T06:22:13.7709381Z (Reading database ... 55%
+2026-01-20T06:22:14.0459467Z (Reading database ... 60%
+2026-01-20T06:22:14.3121933Z (Reading database ... 65%
+2026-01-20T06:22:14.6983385Z (Reading database ... 70%
+2026-01-20T06:22:15.4173099Z (Reading database ... 75%
+2026-01-20T06:22:16.1260508Z (Reading database ... 80%
+2026-01-20T06:22:16.8507661Z (Reading database ... 85%
+2026-01-20T06:22:17.4933266Z (Reading database ... 90%
+2026-01-20T06:22:18.2012012Z (Reading database ... 95%
+2026-01-20T06:22:18.2012532Z (Reading database ... 100%
+2026-01-20T06:22:18.2013105Z (Reading database ... 266735 files and directories currently installed.)
+2026-01-20T06:22:18.2076681Z Preparing to unpack .../0-libpython2.7-minimal_2.7.18-13ubuntu1.5_amd64.deb ...
+2026-01-20T06:22:18.2109893Z Unpacking libpython2.7-minimal:amd64 (2.7.18-13ubuntu1.5) ...
+2026-01-20T06:22:18.2915672Z Selecting previously unselected package python2.7-minimal.
+2026-01-20T06:22:18.3091335Z Preparing to unpack .../1-python2.7-minimal_2.7.18-13ubuntu1.5_amd64.deb ...
+2026-01-20T06:22:18.3150389Z Unpacking python2.7-minimal (2.7.18-13ubuntu1.5) ...
+2026-01-20T06:22:18.3833923Z Selecting previously unselected package gettext.
+2026-01-20T06:22:18.4000152Z Preparing to unpack .../2-gettext_0.21-4ubuntu4_amd64.deb ...
+2026-01-20T06:22:18.4026208Z Unpacking gettext (0.21-4ubuntu4) ...
+2026-01-20T06:22:18.6031596Z Selecting previously unselected package libpython2.7-stdlib:amd64.
+2026-01-20T06:22:18.6197684Z Preparing to unpack .../3-libpython2.7-stdlib_2.7.18-13ubuntu1.5_amd64.deb ...
+2026-01-20T06:22:18.6207830Z Unpacking libpython2.7-stdlib:amd64 (2.7.18-13ubuntu1.5) ...
+2026-01-20T06:22:18.7390332Z Selecting previously unselected package python2.7.
+2026-01-20T06:22:18.7561004Z Preparing to unpack .../4-python2.7_2.7.18-13ubuntu1.5_amd64.deb ...
+2026-01-20T06:22:18.7572712Z Unpacking python2.7 (2.7.18-13ubuntu1.5) ...
+2026-01-20T06:22:18.8409586Z Preparing to unpack .../5-snapd_2.73+ubuntu22.04_amd64.deb ...
+2026-01-20T06:22:18.8897559Z Unpacking snapd (2.73+ubuntu22.04) over (2.72+ubuntu22.04) ...
+2026-01-20T06:22:19.3771065Z Selecting previously unselected package xsltproc.
+2026-01-20T06:22:19.3945597Z Preparing to unpack .../6-xsltproc_1.1.34-4ubuntu0.22.04.5_amd64.deb ...
+2026-01-20T06:22:19.3959020Z Unpacking xsltproc (1.1.34-4ubuntu0.22.04.5) ...
+2026-01-20T06:22:19.4618549Z Setting up snapd (2.73+ubuntu22.04) ...
+2026-01-20T06:22:19.4639631Z Installing new version of config file /etc/apparmor.d/usr.lib.snapd.snap-confine.real ...
+2026-01-20T06:22:19.4677520Z Installing new version of config file /etc/profile.d/apps-bin-path.sh ...
+2026-01-20T06:22:29.6110986Z snapd.failure.service is a disabled or a static unit not running, not starting it.
+2026-01-20T06:22:29.6231799Z snapd.gpio-chardev-setup.target is a disabled or a static unit not running, not starting it.
+2026-01-20T06:22:29.6618965Z snapd.snap-repair.service is a disabled or a static unit not running, not starting it.
+2026-01-20T06:22:29.7771282Z Setting up gettext (0.21-4ubuntu4) ...
+2026-01-20T06:22:29.7801510Z Setting up xsltproc (1.1.34-4ubuntu0.22.04.5) ...
+2026-01-20T06:22:29.7829924Z Setting up libpython2.7-minimal:amd64 (2.7.18-13ubuntu1.5) ...
+2026-01-20T06:22:29.7885186Z Setting up python2.7-minimal (2.7.18-13ubuntu1.5) ...
+2026-01-20T06:22:30.0288597Z Setting up libpython2.7-stdlib:amd64 (2.7.18-13ubuntu1.5) ...
+2026-01-20T06:22:30.0321139Z Setting up python2.7 (2.7.18-13ubuntu1.5) ...
+2026-01-20T06:22:30.5519534Z Processing triggers for man-db (2.10.2-1) ...
+2026-01-20T06:22:30.5580600Z Not building database; man-db/auto-update is not 'true'.
+2026-01-20T06:22:30.5597807Z Processing triggers for dbus (1.12.20-2ubuntu4.1) ...
+2026-01-20T06:22:30.5725970Z Processing triggers for install-info (6.8-4build1) ...
+2026-01-20T06:22:30.8080299Z Processing triggers for mailcap (3.70+nmu1ubuntu1) ...
+2026-01-20T06:22:30.8823075Z Processing triggers for libc-bin (2.35-0ubuntu3.11) ...
+2026-01-20T06:22:32.1544051Z 
+2026-01-20T06:22:32.1544971Z Running kernel seems to be up-to-date.
+2026-01-20T06:22:32.1545413Z 
+2026-01-20T06:22:32.1545606Z No services need to be restarted.
+2026-01-20T06:22:32.1545945Z 
+2026-01-20T06:22:32.1546125Z No containers need to be restarted.
+2026-01-20T06:22:32.1546468Z 
+2026-01-20T06:22:32.1547756Z No user sessions are running outdated binaries.
+2026-01-20T06:22:32.1548181Z 
+2026-01-20T06:22:32.1548569Z No VM guests are running outdated hypervisor (qemu) binaries on this host.
+2026-01-20T06:22:41.1127707Z jq 1.5+dfsg-1 from Michael Vogt (mvo*) installed
+2026-01-20T06:22:41.1499232Z ##[group]Run git clone -q -b "${REPO_BRANCH}" --single-branch "${REPO_URL}" openwrt
+2026-01-20T06:22:41.1499813Z [36;1mgit clone -q -b "${REPO_BRANCH}" --single-branch "${REPO_URL}" openwrt[0m
+2026-01-20T06:22:41.1500230Z [36;1mln -sf //openwrt ${GITHUB_WORKSPACE}/openwrt[0m
+2026-01-20T06:22:41.1500554Z [36;1mbash /tmp/common/common.sh Diy_feedsconf[0m
+2026-01-20T06:22:41.1500860Z [36;1mecho "SHANG_CHUAN=true" >> ${GITHUB_ENV}[0m
+2026-01-20T06:22:41.1561863Z shell: /usr/bin/bash -e {0}
+2026-01-20T06:22:41.1562110Z env:
+2026-01-20T06:22:41.1562310Z   GIT_REPOSITORY: xztxy/build-actions
+2026-01-20T06:22:41.1562747Z   REPO_TOKEN: ***
+2026-01-20T06:22:41.1563014Z   PUSH_PLUS_TOKEN: ***
+2026-01-20T06:22:41.1563361Z   TELEGRAM_BOT_TOKEN: ***
+2026-01-20T06:22:41.1563699Z   TELEGRAM_CHAT_ID: ***
+2026-01-20T06:22:41.1563919Z   TZ: Asia/Shanghai
+2026-01-20T06:22:41.1564139Z   FOLDER_NAME: Fanchmwrt
+2026-01-20T06:22:41.1564374Z   SOURCE_CODE: FANCHMWRT
+2026-01-20T06:22:41.1564635Z   BENDI_VERSION: 2
+2026-01-20T06:22:41.1565048Z   REPO_BRANCH: fanchmwrt-24.10.4
+2026-01-20T06:22:41.1565441Z   INFORMATION_NOTICE: false
+2026-01-20T06:22:41.1565851Z   KEEP_WORKFLOWS: 30
+2026-01-20T06:22:41.1566187Z   KEEP_RELEASES: 30
+2026-01-20T06:22:41.1566492Z   SSH_ACTION: false
+2026-01-20T06:22:41.1566809Z   UPLOAD_FIRMWARE: true
+2026-01-20T06:22:41.1567308Z   UPLOAD_RELEASE: false
+2026-01-20T06:22:41.1567547Z   CACHEWRTBUILD_SWITCH: true
+2026-01-20T06:22:41.1567803Z   UPDATE_FIRMWARE_ONLINE: true
+2026-01-20T06:22:41.1568124Z   GITHUB_LINK: https://github.com/xztxy/build-actions
+2026-01-20T06:22:41.1568459Z   GIT_ACTOR: xztxy
+2026-01-20T06:22:41.1568672Z   WAREHOUSE_MAN: build-actions
+2026-01-20T06:22:41.1568915Z   RUN_NUMBER: 55
+2026-01-20T06:22:41.1569115Z   GIT_REFNAME: main
+2026-01-20T06:22:41.1569332Z   COMPILATION_INFORMATION: true
+2026-01-20T06:22:41.1569581Z   CONFIG_FILE: x86_64
+2026-01-20T06:22:41.1569892Z   HOME_PATH: /home/runner/work/build-actions/build-actions/openwrt
+2026-01-20T06:22:41.1570395Z   OPERATES_PATH: /home/runner/work/build-actions/build-actions/operates
+2026-01-20T06:22:41.1570933Z   COMPILE_PATH: /home/runner/work/build-actions/build-actions/operates/Fanchmwrt
+2026-01-20T06:22:41.1571505Z   BUILD_DIY: /home/runner/work/build-actions/build-actions/operates/Fanchmwrt/diy
+2026-01-20T06:22:41.1572093Z   BUILD_FILES: /home/runner/work/build-actions/build-actions/operates/Fanchmwrt/files
+2026-01-20T06:22:41.1572725Z   BUILD_PATCHES: /home/runner/work/build-actions/build-actions/operates/Fanchmwrt/patches
+2026-01-20T06:22:41.1573418Z   BUILD_PARTSH: /home/runner/work/build-actions/build-actions/operates/Fanchmwrt/diy-part.sh
+2026-01-20T06:22:41.1574076Z   BUILD_SETTINGS: /home/runner/work/build-actions/build-actions/operates/Fanchmwrt/settings.ini
+2026-01-20T06:22:41.1574676Z   MYCONFIG_FILE: /home/runner/work/build-actions/build-actions/operates/Fanchmwrt/seed/x86_64
+2026-01-20T06:22:41.1575101Z   LINSHI_COMMON: /tmp/common
+2026-01-20T06:22:41.1575359Z   DIY_PT1_SH: /tmp/common/Fanchmwrt/diy-part.sh
+2026-01-20T06:22:41.1575663Z   DIY_PT2_SH: /tmp/common/Fanchmwrt/diy2-part.sh
+2026-01-20T06:22:41.1575931Z   COMMON_SH: /tmp/common/common.sh
+2026-01-20T06:22:41.1576172Z   UPGRADE_SH: /tmp/common/upgrade.sh
+2026-01-20T06:22:41.1576408Z   CONFIG_TXT: /tmp/common/config.txt
+2026-01-20T06:22:41.1576637Z   OpenClash_branch: 0
+2026-01-20T06:22:41.1576836Z   Mandatory_theme: argon
+2026-01-20T06:22:41.1577162Z   Default_theme: argon
+2026-01-20T06:22:41.1577404Z   REPO_URL: https://github.com/fanchmwrt/fanchmwrt
+2026-01-20T06:22:41.1577671Z   SOURCE: Fanchmwrt
+2026-01-20T06:22:41.1577857Z   SOURCE_OWNER: fanchmwrt
+2026-01-20T06:22:41.1578070Z   DISTRIB_SOURCECODE: fanchmwrt
+2026-01-20T06:22:41.1578288Z   LUCI_EDITION: 24.10.4
+2026-01-20T06:22:41.1578726Z   GENE_PATH: /home/runner/work/build-actions/build-actions/openwrt/package/base-files/files/bin/config_generate
+2026-01-20T06:22:41.1579419Z   FILES_PATH: /home/runner/work/build-actions/build-actions/openwrt/package/base-files/files/etc/shadow
+2026-01-20T06:22:41.1580280Z   DELETE: /home/runner/work/build-actions/build-actions/openwrt/package/base-files/files/etc/deletefile
+2026-01-20T06:22:41.1580974Z   DEFAULT_PATH: /home/runner/work/build-actions/build-actions/openwrt/package/auto-scripts/files/99-first-run
+2026-01-20T06:22:41.1581770Z   KEEPD_PATH: /home/runner/work/build-actions/build-actions/openwrt/package/base-files/files/lib/upgrade/keep.d/base-files-essential
+2026-01-20T06:22:41.1582335Z   CLEAR_PATH: /tmp/Clear
+2026-01-20T06:22:41.1582546Z   UPGRADE_DATE: 1768890126
+2026-01-20T06:22:41.1582752Z   GUJIAN_DATE: 01.20
+2026-01-20T06:22:41.1583093Z   LICENSES_DOC: /home/runner/work/build-actions/build-actions/openwrt/LICENSES/doc
+2026-01-20T06:22:41.1583469Z ##[endgroup]
+2026-01-20T06:22:56.3342052Z ##[group]Run xztxy/common@message
+2026-01-20T06:22:56.3342451Z env:
+2026-01-20T06:22:56.3342650Z   GIT_REPOSITORY: xztxy/build-actions
+2026-01-20T06:22:56.3343086Z   REPO_TOKEN: ***
+2026-01-20T06:22:56.3343334Z   PUSH_PLUS_TOKEN: ***
+2026-01-20T06:22:56.3343857Z   TELEGRAM_BOT_TOKEN: ***
+2026-01-20T06:22:56.3344086Z   TELEGRAM_CHAT_ID: ***
+2026-01-20T06:22:56.3344288Z   TZ: Asia/Shanghai
+2026-01-20T06:22:56.3344488Z   FOLDER_NAME: Fanchmwrt
+2026-01-20T06:22:56.3344721Z   SOURCE_CODE: FANCHMWRT
+2026-01-20T06:22:56.3344933Z   BENDI_VERSION: 2
+2026-01-20T06:22:56.3345137Z   REPO_BRANCH: fanchmwrt-24.10.4
+2026-01-20T06:22:56.3345381Z   INFORMATION_NOTICE: false
+2026-01-20T06:22:56.3345598Z   KEEP_WORKFLOWS: 30
+2026-01-20T06:22:56.3345781Z   KEEP_RELEASES: 30
+2026-01-20T06:22:56.3345961Z   SSH_ACTION: false
+2026-01-20T06:22:56.3346143Z   UPLOAD_FIRMWARE: true
+2026-01-20T06:22:56.3346341Z   UPLOAD_RELEASE: false
+2026-01-20T06:22:56.3346542Z   CACHEWRTBUILD_SWITCH: true
+2026-01-20T06:22:56.3346793Z   UPDATE_FIRMWARE_ONLINE: true
+2026-01-20T06:22:56.3347490Z   GITHUB_LINK: https://github.com/xztxy/build-actions
+2026-01-20T06:22:56.3347808Z   GIT_ACTOR: xztxy
+2026-01-20T06:22:56.3348012Z   WAREHOUSE_MAN: build-actions
+2026-01-20T06:22:56.3348230Z   RUN_NUMBER: 55
+2026-01-20T06:22:56.3348419Z   GIT_REFNAME: main
+2026-01-20T06:22:56.3348616Z   COMPILATION_INFORMATION: true
+2026-01-20T06:22:56.3348840Z   CONFIG_FILE: x86_64
+2026-01-20T06:22:56.3349133Z   HOME_PATH: /home/runner/work/build-actions/build-actions/openwrt
+2026-01-20T06:22:56.3349572Z   OPERATES_PATH: /home/runner/work/build-actions/build-actions/operates
+2026-01-20T06:22:56.3350054Z   COMPILE_PATH: /home/runner/work/build-actions/build-actions/operates/Fanchmwrt
+2026-01-20T06:22:56.3350563Z   BUILD_DIY: /home/runner/work/build-actions/build-actions/operates/Fanchmwrt/diy
+2026-01-20T06:22:56.3351090Z   BUILD_FILES: /home/runner/work/build-actions/build-actions/operates/Fanchmwrt/files
+2026-01-20T06:22:56.3351652Z   BUILD_PATCHES: /home/runner/work/build-actions/build-actions/operates/Fanchmwrt/patches
+2026-01-20T06:22:56.3352235Z   BUILD_PARTSH: /home/runner/work/build-actions/build-actions/operates/Fanchmwrt/diy-part.sh
+2026-01-20T06:22:56.3352833Z   BUILD_SETTINGS: /home/runner/work/build-actions/build-actions/operates/Fanchmwrt/settings.ini
+2026-01-20T06:22:56.3353440Z   MYCONFIG_FILE: /home/runner/work/build-actions/build-actions/operates/Fanchmwrt/seed/x86_64
+2026-01-20T06:22:56.3353867Z   LINSHI_COMMON: /tmp/common
+2026-01-20T06:22:56.3354126Z   DIY_PT1_SH: /tmp/common/Fanchmwrt/diy-part.sh
+2026-01-20T06:22:56.3354431Z   DIY_PT2_SH: /tmp/common/Fanchmwrt/diy2-part.sh
+2026-01-20T06:22:56.3354709Z   COMMON_SH: /tmp/common/common.sh
+2026-01-20T06:22:56.3354949Z   UPGRADE_SH: /tmp/common/upgrade.sh
+2026-01-20T06:22:56.3355196Z   CONFIG_TXT: /tmp/common/config.txt
+2026-01-20T06:22:56.3355427Z   OpenClash_branch: 0
+2026-01-20T06:22:56.3355628Z   Mandatory_theme: argon
+2026-01-20T06:22:56.3355845Z   Default_theme: argon
+2026-01-20T06:22:56.3356101Z   REPO_URL: https://github.com/fanchmwrt/fanchmwrt
+2026-01-20T06:22:56.3356382Z   SOURCE: Fanchmwrt
+2026-01-20T06:22:56.3356572Z   SOURCE_OWNER: fanchmwrt
+2026-01-20T06:22:56.3356786Z   DISTRIB_SOURCECODE: fanchmwrt
+2026-01-20T06:22:56.3357351Z   LUCI_EDITION: 24.10.4
+2026-01-20T06:22:56.3357832Z   GENE_PATH: /home/runner/work/build-actions/build-actions/openwrt/package/base-files/files/bin/config_generate
+2026-01-20T06:22:56.3358554Z   FILES_PATH: /home/runner/work/build-actions/build-actions/openwrt/package/base-files/files/etc/shadow
+2026-01-20T06:22:56.3359229Z   DELETE: /home/runner/work/build-actions/build-actions/openwrt/package/base-files/files/etc/deletefile
+2026-01-20T06:22:56.3359926Z   DEFAULT_PATH: /home/runner/work/build-actions/build-actions/openwrt/package/auto-scripts/files/99-first-run
+2026-01-20T06:22:56.3360731Z   KEEPD_PATH: /home/runner/work/build-actions/build-actions/openwrt/package/base-files/files/lib/upgrade/keep.d/base-files-essential
+2026-01-20T06:22:56.3361543Z   CLEAR_PATH: /tmp/Clear
+2026-01-20T06:22:56.3361770Z   UPGRADE_DATE: 1768890126
+2026-01-20T06:22:56.3361980Z   GUJIAN_DATE: 01.20
+2026-01-20T06:22:56.3362315Z   LICENSES_DOC: /home/runner/work/build-actions/build-actions/openwrt/LICENSES/doc
+2026-01-20T06:22:56.3362697Z   SHANG_CHUAN: true
+2026-01-20T06:22:56.3363009Z ##[endgroup]
+2026-01-20T06:22:56.3401751Z ##[group]Run cd "$HOME_PATH"
+2026-01-20T06:22:56.3402193Z [36;1mcd "$HOME_PATH"[0m
+2026-01-20T06:22:56.3402591Z [36;1mecho -e "\n\033[0;33m第一次用我仓库的，请不要拉取任何插件，先SSH进入固件配置那里看过我脚本实在是没有你要的插件才再拉取\033[0m"[0m
+2026-01-20T06:22:56.3403187Z [36;1mecho -e "\n\033[0;33m拉取插件应该单独拉取某一个你需要的插件，别一下子就拉取别人一个插件包，这样容易增加编译失败概率\033[0m"[0m
+2026-01-20T06:22:56.3418362Z [36;1mif [[ "${UPDATE_FIRMWARE_ONLINE}" == "true" ]]; then[0m
+2026-01-20T06:22:56.3418863Z [36;1m   echo -e "\n\033[0;31mSSH连接固件输入命令'openwrt'可进行修改后台IP、清空密码、还原出厂设置和在线更新固件操作\033[0m"[0m
+2026-01-20T06:22:56.3419301Z [36;1melse[0m
+2026-01-20T06:22:56.3419621Z [36;1m   echo -e "\n\033[0;31mSSH连接固件输入命令'openwrt'可进行修改后台IP，清空密码和还原出厂设置操作\033[0m"[0m
+2026-01-20T06:22:56.3419965Z [36;1mfi[0m
+2026-01-20T06:22:56.3420129Z [36;1mecho[0m
+2026-01-20T06:22:56.3479409Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-01-20T06:22:56.3479724Z env:
+2026-01-20T06:22:56.3479911Z   GIT_REPOSITORY: xztxy/build-actions
+2026-01-20T06:22:56.3480303Z   REPO_TOKEN: ***
+2026-01-20T06:22:56.3480545Z   PUSH_PLUS_TOKEN: ***
+2026-01-20T06:22:56.3480859Z   TELEGRAM_BOT_TOKEN: ***
+2026-01-20T06:22:56.3481087Z   TELEGRAM_CHAT_ID: ***
+2026-01-20T06:22:56.3481283Z   TZ: Asia/Shanghai
+2026-01-20T06:22:56.3481468Z   FOLDER_NAME: Fanchmwrt
+2026-01-20T06:22:56.3481674Z   SOURCE_CODE: FANCHMWRT
+2026-01-20T06:22:56.3481857Z   BENDI_VERSION: 2
+2026-01-20T06:22:56.3482049Z   REPO_BRANCH: fanchmwrt-24.10.4
+2026-01-20T06:22:56.3482282Z   INFORMATION_NOTICE: false
+2026-01-20T06:22:56.3482493Z   KEEP_WORKFLOWS: 30
+2026-01-20T06:22:56.3482675Z   KEEP_RELEASES: 30
+2026-01-20T06:22:56.3482844Z   SSH_ACTION: false
+2026-01-20T06:22:56.3483030Z   UPLOAD_FIRMWARE: true
+2026-01-20T06:22:56.3483234Z   UPLOAD_RELEASE: false
+2026-01-20T06:22:56.3483438Z   CACHEWRTBUILD_SWITCH: true
+2026-01-20T06:22:56.3483665Z   UPDATE_FIRMWARE_ONLINE: true
+2026-01-20T06:22:56.3483937Z   GITHUB_LINK: https://github.com/xztxy/build-actions
+2026-01-20T06:22:56.3484228Z   GIT_ACTOR: xztxy
+2026-01-20T06:22:56.3484416Z   WAREHOUSE_MAN: build-actions
+2026-01-20T06:22:56.3484627Z   RUN_NUMBER: 55
+2026-01-20T06:22:56.3484799Z   GIT_REFNAME: main
+2026-01-20T06:22:56.3484991Z   COMPILATION_INFORMATION: true
+2026-01-20T06:22:56.3485205Z   CONFIG_FILE: x86_64
+2026-01-20T06:22:56.3485486Z   HOME_PATH: /home/runner/work/build-actions/build-actions/openwrt
+2026-01-20T06:22:56.3485911Z   OPERATES_PATH: /home/runner/work/build-actions/build-actions/operates
+2026-01-20T06:22:56.3486378Z   COMPILE_PATH: /home/runner/work/build-actions/build-actions/operates/Fanchmwrt
+2026-01-20T06:22:56.3486875Z   BUILD_DIY: /home/runner/work/build-actions/build-actions/operates/Fanchmwrt/diy
+2026-01-20T06:22:56.3487558Z   BUILD_FILES: /home/runner/work/build-actions/build-actions/operates/Fanchmwrt/files
+2026-01-20T06:22:56.3488106Z   BUILD_PATCHES: /home/runner/work/build-actions/build-actions/operates/Fanchmwrt/patches
+2026-01-20T06:22:56.3488671Z   BUILD_PARTSH: /home/runner/work/build-actions/build-actions/operates/Fanchmwrt/diy-part.sh
+2026-01-20T06:22:56.3489265Z   BUILD_SETTINGS: /home/runner/work/build-actions/build-actions/operates/Fanchmwrt/settings.ini
+2026-01-20T06:22:56.3489857Z   MYCONFIG_FILE: /home/runner/work/build-actions/build-actions/operates/Fanchmwrt/seed/x86_64
+2026-01-20T06:22:56.3490276Z   LINSHI_COMMON: /tmp/common
+2026-01-20T06:22:56.3490530Z   DIY_PT1_SH: /tmp/common/Fanchmwrt/diy-part.sh
+2026-01-20T06:22:56.3490829Z   DIY_PT2_SH: /tmp/common/Fanchmwrt/diy2-part.sh
+2026-01-20T06:22:56.3491099Z   COMMON_SH: /tmp/common/common.sh
+2026-01-20T06:22:56.3491340Z   UPGRADE_SH: /tmp/common/upgrade.sh
+2026-01-20T06:22:56.3491580Z   CONFIG_TXT: /tmp/common/config.txt
+2026-01-20T06:22:56.3492000Z   OpenClash_branch: 0
+2026-01-20T06:22:56.3492206Z   Mandatory_theme: argon
+2026-01-20T06:22:56.3492405Z   Default_theme: argon
+2026-01-20T06:22:56.3492647Z   REPO_URL: https://github.com/fanchmwrt/fanchmwrt
+2026-01-20T06:22:56.3492927Z   SOURCE: Fanchmwrt
+2026-01-20T06:22:56.3493112Z   SOURCE_OWNER: fanchmwrt
+2026-01-20T06:22:56.3493440Z   DISTRIB_SOURCECODE: fanchmwrt
+2026-01-20T06:22:56.3493661Z   LUCI_EDITION: 24.10.4
+2026-01-20T06:22:56.3494108Z   GENE_PATH: /home/runner/work/build-actions/build-actions/openwrt/package/base-files/files/bin/config_generate
+2026-01-20T06:22:56.3494793Z   FILES_PATH: /home/runner/work/build-actions/build-actions/openwrt/package/base-files/files/etc/shadow
+2026-01-20T06:22:56.3495449Z   DELETE: /home/runner/work/build-actions/build-actions/openwrt/package/base-files/files/etc/deletefile
+2026-01-20T06:22:56.3496129Z   DEFAULT_PATH: /home/runner/work/build-actions/build-actions/openwrt/package/auto-scripts/files/99-first-run
+2026-01-20T06:22:56.3497081Z   KEEPD_PATH: /home/runner/work/build-actions/build-actions/openwrt/package/base-files/files/lib/upgrade/keep.d/base-files-essential
+2026-01-20T06:22:56.3497652Z   CLEAR_PATH: /tmp/Clear
+2026-01-20T06:22:56.3497859Z   UPGRADE_DATE: 1768890126
+2026-01-20T06:22:56.3498056Z   GUJIAN_DATE: 01.20
+2026-01-20T06:22:56.3498416Z   LICENSES_DOC: /home/runner/work/build-actions/build-actions/openwrt/LICENSES/doc
+2026-01-20T06:22:56.3498788Z   SHANG_CHUAN: true
+2026-01-20T06:22:56.3498961Z ##[endgroup]
+2026-01-20T06:22:56.3569982Z 
+2026-01-20T06:22:56.3570462Z [0;33m第一次用我仓库的，请不要拉取任何插件，先SSH进入固件配置那里看过我脚本实在是没有你要的插件才再拉取[0m
+2026-01-20T06:22:56.3570859Z 
+2026-01-20T06:22:56.3571103Z [0;33m拉取插件应该单独拉取某一个你需要的插件，别一下子就拉取别人一个插件包，这样容易增加编译失败概率[0m
+2026-01-20T06:22:56.3571316Z 
+2026-01-20T06:22:56.3571525Z [0;31mSSH连接固件输入命令'openwrt'可进行修改后台IP、清空密码、还原出厂设置和在线更新固件操作[0m
+2026-01-20T06:22:56.3571753Z 
+2026-01-20T06:22:56.3664411Z ##[group]Run xztxy/common@need
+2026-01-20T06:22:56.3664658Z env:
+2026-01-20T06:22:56.3664849Z   GIT_REPOSITORY: xztxy/build-actions
+2026-01-20T06:22:56.3665208Z   REPO_TOKEN: ***
+2026-01-20T06:22:56.3665446Z   PUSH_PLUS_TOKEN: ***
+2026-01-20T06:22:56.3665754Z   TELEGRAM_BOT_TOKEN: ***
+2026-01-20T06:22:56.3665971Z   TELEGRAM_CHAT_ID: ***
+2026-01-20T06:22:56.3666168Z   TZ: Asia/Shanghai
+2026-01-20T06:22:56.3666356Z   FOLDER_NAME: Fanchmwrt
+2026-01-20T06:22:56.3666578Z   SOURCE_CODE: FANCHMWRT
+2026-01-20T06:22:56.3666772Z   BENDI_VERSION: 2
+2026-01-20T06:22:56.3667180Z   REPO_BRANCH: fanchmwrt-24.10.4
+2026-01-20T06:22:56.3667423Z   INFORMATION_NOTICE: false
+2026-01-20T06:22:56.3667634Z   KEEP_WORKFLOWS: 30
+2026-01-20T06:22:56.3667818Z   KEEP_RELEASES: 30
+2026-01-20T06:22:56.3667993Z   SSH_ACTION: false
+2026-01-20T06:22:56.3668171Z   UPLOAD_FIRMWARE: true
+2026-01-20T06:22:56.3668360Z   UPLOAD_RELEASE: false
+2026-01-20T06:22:56.3668559Z   CACHEWRTBUILD_SWITCH: true
+2026-01-20T06:22:56.3668804Z   UPDATE_FIRMWARE_ONLINE: true
+2026-01-20T06:22:56.3669079Z   GITHUB_LINK: https://github.com/xztxy/build-actions
+2026-01-20T06:22:56.3669358Z   GIT_ACTOR: xztxy
+2026-01-20T06:22:56.3669546Z   WAREHOUSE_MAN: build-actions
+2026-01-20T06:22:56.3669758Z   RUN_NUMBER: 55
+2026-01-20T06:22:56.3669935Z   GIT_REFNAME: main
+2026-01-20T06:22:56.3670125Z   COMPILATION_INFORMATION: true
+2026-01-20T06:22:56.3670339Z   CONFIG_FILE: x86_64
+2026-01-20T06:22:56.3670621Z   HOME_PATH: /home/runner/work/build-actions/build-actions/openwrt
+2026-01-20T06:22:56.3671044Z   OPERATES_PATH: /home/runner/work/build-actions/build-actions/operates
+2026-01-20T06:22:56.3671511Z   COMPILE_PATH: /home/runner/work/build-actions/build-actions/operates/Fanchmwrt
+2026-01-20T06:22:56.3672005Z   BUILD_DIY: /home/runner/work/build-actions/build-actions/operates/Fanchmwrt/diy
+2026-01-20T06:22:56.3672509Z   BUILD_FILES: /home/runner/work/build-actions/build-actions/operates/Fanchmwrt/files
+2026-01-20T06:22:56.3673052Z   BUILD_PATCHES: /home/runner/work/build-actions/build-actions/operates/Fanchmwrt/patches
+2026-01-20T06:22:56.3673610Z   BUILD_PARTSH: /home/runner/work/build-actions/build-actions/operates/Fanchmwrt/diy-part.sh
+2026-01-20T06:22:56.3674193Z   BUILD_SETTINGS: /home/runner/work/build-actions/build-actions/operates/Fanchmwrt/settings.ini
+2026-01-20T06:22:56.3674781Z   MYCONFIG_FILE: /home/runner/work/build-actions/build-actions/operates/Fanchmwrt/seed/x86_64
+2026-01-20T06:22:56.3675365Z   LINSHI_COMMON: /tmp/common
+2026-01-20T06:22:56.3675612Z   DIY_PT1_SH: /tmp/common/Fanchmwrt/diy-part.sh
+2026-01-20T06:22:56.3675900Z   DIY_PT2_SH: /tmp/common/Fanchmwrt/diy2-part.sh
+2026-01-20T06:22:56.3676171Z   COMMON_SH: /tmp/common/common.sh
+2026-01-20T06:22:56.3676403Z   UPGRADE_SH: /tmp/common/upgrade.sh
+2026-01-20T06:22:56.3676648Z   CONFIG_TXT: /tmp/common/config.txt
+2026-01-20T06:22:56.3676878Z   OpenClash_branch: 0
+2026-01-20T06:22:56.3677262Z   Mandatory_theme: argon
+2026-01-20T06:22:56.3677469Z   Default_theme: argon
+2026-01-20T06:22:56.3677711Z   REPO_URL: https://github.com/fanchmwrt/fanchmwrt
+2026-01-20T06:22:56.3677991Z   SOURCE: Fanchmwrt
+2026-01-20T06:22:56.3678178Z   SOURCE_OWNER: fanchmwrt
+2026-01-20T06:22:56.3678387Z   DISTRIB_SOURCECODE: fanchmwrt
+2026-01-20T06:22:56.3678608Z   LUCI_EDITION: 24.10.4
+2026-01-20T06:22:56.3679052Z   GENE_PATH: /home/runner/work/build-actions/build-actions/openwrt/package/base-files/files/bin/config_generate
+2026-01-20T06:22:56.3679737Z   FILES_PATH: /home/runner/work/build-actions/build-actions/openwrt/package/base-files/files/etc/shadow
+2026-01-20T06:22:56.3680403Z   DELETE: /home/runner/work/build-actions/build-actions/openwrt/package/base-files/files/etc/deletefile
+2026-01-20T06:22:56.3681082Z   DEFAULT_PATH: /home/runner/work/build-actions/build-actions/openwrt/package/auto-scripts/files/99-first-run
+2026-01-20T06:22:56.3681865Z   KEEPD_PATH: /home/runner/work/build-actions/build-actions/openwrt/package/base-files/files/lib/upgrade/keep.d/base-files-essential
+2026-01-20T06:22:56.3682599Z   CLEAR_PATH: /tmp/Clear
+2026-01-20T06:22:56.3682813Z   UPGRADE_DATE: 1768890126
+2026-01-20T06:22:56.3683013Z   GUJIAN_DATE: 01.20
+2026-01-20T06:22:56.3683331Z   LICENSES_DOC: /home/runner/work/build-actions/build-actions/openwrt/LICENSES/doc
+2026-01-20T06:22:56.3683696Z   SHANG_CHUAN: true
+2026-01-20T06:22:56.3683873Z ##[endgroup]
+2026-01-20T06:22:56.3701734Z ##[group]Run cd $HOME_PATH
+2026-01-20T06:22:56.3701955Z [36;1mcd $HOME_PATH[0m
+2026-01-20T06:22:56.3702170Z [36;1mbash $COMMON_SH Diy_menu[0m
+2026-01-20T06:22:56.3753853Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-01-20T06:22:56.3754162Z env:
+2026-01-20T06:22:56.3754348Z   GIT_REPOSITORY: xztxy/build-actions
+2026-01-20T06:22:56.3754713Z   REPO_TOKEN: ***
+2026-01-20T06:22:56.3754957Z   PUSH_PLUS_TOKEN: ***
+2026-01-20T06:22:56.3755271Z   TELEGRAM_BOT_TOKEN: ***
+2026-01-20T06:22:56.3755494Z   TELEGRAM_CHAT_ID: ***
+2026-01-20T06:22:56.3755686Z   TZ: Asia/Shanghai
+2026-01-20T06:22:56.3755871Z   FOLDER_NAME: Fanchmwrt
+2026-01-20T06:22:56.3756074Z   SOURCE_CODE: FANCHMWRT
+2026-01-20T06:22:56.3756267Z   BENDI_VERSION: 2
+2026-01-20T06:22:56.3756456Z   REPO_BRANCH: fanchmwrt-24.10.4
+2026-01-20T06:22:56.3756682Z   INFORMATION_NOTICE: false
+2026-01-20T06:22:56.3756890Z   KEEP_WORKFLOWS: 30
+2026-01-20T06:22:56.3757269Z   KEEP_RELEASES: 30
+2026-01-20T06:22:56.3757443Z   SSH_ACTION: false
+2026-01-20T06:22:56.3757618Z   UPLOAD_FIRMWARE: true
+2026-01-20T06:22:56.3757806Z   UPLOAD_RELEASE: false
+2026-01-20T06:22:56.3758008Z   CACHEWRTBUILD_SWITCH: true
+2026-01-20T06:22:56.3758221Z   UPDATE_FIRMWARE_ONLINE: true
+2026-01-20T06:22:56.3758490Z   GITHUB_LINK: https://github.com/xztxy/build-actions
+2026-01-20T06:22:56.3758780Z   GIT_ACTOR: xztxy
+2026-01-20T06:22:56.3758967Z   WAREHOUSE_MAN: build-actions
+2026-01-20T06:22:56.3759173Z   RUN_NUMBER: 55
+2026-01-20T06:22:56.3759343Z   GIT_REFNAME: main
+2026-01-20T06:22:56.3759526Z   COMPILATION_INFORMATION: true
+2026-01-20T06:22:56.3759740Z   CONFIG_FILE: x86_64
+2026-01-20T06:22:56.3760013Z   HOME_PATH: /home/runner/work/build-actions/build-actions/openwrt
+2026-01-20T06:22:56.3760432Z   OPERATES_PATH: /home/runner/work/build-actions/build-actions/operates
+2026-01-20T06:22:56.3760899Z   COMPILE_PATH: /home/runner/work/build-actions/build-actions/operates/Fanchmwrt
+2026-01-20T06:22:56.3761390Z   BUILD_DIY: /home/runner/work/build-actions/build-actions/operates/Fanchmwrt/diy
+2026-01-20T06:22:56.3761887Z   BUILD_FILES: /home/runner/work/build-actions/build-actions/operates/Fanchmwrt/files
+2026-01-20T06:22:56.3762628Z   BUILD_PATCHES: /home/runner/work/build-actions/build-actions/operates/Fanchmwrt/patches
+2026-01-20T06:22:56.3763197Z   BUILD_PARTSH: /home/runner/work/build-actions/build-actions/operates/Fanchmwrt/diy-part.sh
+2026-01-20T06:22:56.3763779Z   BUILD_SETTINGS: /home/runner/work/build-actions/build-actions/operates/Fanchmwrt/settings.ini
+2026-01-20T06:22:56.3764357Z   MYCONFIG_FILE: /home/runner/work/build-actions/build-actions/operates/Fanchmwrt/seed/x86_64
+2026-01-20T06:22:56.3764777Z   LINSHI_COMMON: /tmp/common
+2026-01-20T06:22:56.3765029Z   DIY_PT1_SH: /tmp/common/Fanchmwrt/diy-part.sh
+2026-01-20T06:22:56.3765320Z   DIY_PT2_SH: /tmp/common/Fanchmwrt/diy2-part.sh
+2026-01-20T06:22:56.3765579Z   COMMON_SH: /tmp/common/common.sh
+2026-01-20T06:22:56.3765814Z   UPGRADE_SH: /tmp/common/upgrade.sh
+2026-01-20T06:22:56.3766052Z   CONFIG_TXT: /tmp/common/config.txt
+2026-01-20T06:22:56.3766278Z   OpenClash_branch: 0
+2026-01-20T06:22:56.3766482Z   Mandatory_theme: argon
+2026-01-20T06:22:56.3766682Z   Default_theme: argon
+2026-01-20T06:22:56.3767119Z   REPO_URL: https://github.com/fanchmwrt/fanchmwrt
+2026-01-20T06:22:56.3767405Z   SOURCE: Fanchmwrt
+2026-01-20T06:22:56.3767599Z   SOURCE_OWNER: fanchmwrt
+2026-01-20T06:22:56.3767809Z   DISTRIB_SOURCECODE: fanchmwrt
+2026-01-20T06:22:56.3768019Z   LUCI_EDITION: 24.10.4
+2026-01-20T06:22:56.3768470Z   GENE_PATH: /home/runner/work/build-actions/build-actions/openwrt/package/base-files/files/bin/config_generate
+2026-01-20T06:22:56.3769316Z   FILES_PATH: /home/runner/work/build-actions/build-actions/openwrt/package/base-files/files/etc/shadow
+2026-01-20T06:22:56.3769989Z   DELETE: /home/runner/work/build-actions/build-actions/openwrt/package/base-files/files/etc/deletefile
+2026-01-20T06:22:56.3770667Z   DEFAULT_PATH: /home/runner/work/build-actions/build-actions/openwrt/package/auto-scripts/files/99-first-run
+2026-01-20T06:22:56.3771447Z   KEEPD_PATH: /home/runner/work/build-actions/build-actions/openwrt/package/base-files/files/lib/upgrade/keep.d/base-files-essential
+2026-01-20T06:22:56.3772012Z   CLEAR_PATH: /tmp/Clear
+2026-01-20T06:22:56.3772210Z   UPGRADE_DATE: 1768890126
+2026-01-20T06:22:56.3772411Z   GUJIAN_DATE: 01.20
+2026-01-20T06:22:56.3772730Z   LICENSES_DOC: /home/runner/work/build-actions/build-actions/openwrt/LICENSES/doc
+2026-01-20T06:22:56.3773099Z   SHANG_CHUAN: true
+2026-01-20T06:22:56.3773276Z ##[endgroup]
+2026-01-20T06:22:56.3891108Z 
+2026-01-20T06:22:56.3891560Z [0;33m正在执行：下载和整理应用,请耐心等候...[0m
+2026-01-20T06:22:56.4053892Z Cloning into '/tmp/tmp.AJvRvtMQdp'...
+2026-01-20T06:23:50.5896809Z Note: switching to '75e41cba5160281b2d1dca922719efef29f7ffd8'.
+2026-01-20T06:23:50.5897695Z 
+2026-01-20T06:23:50.5898090Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-01-20T06:23:50.5899094Z changes and commit them, and you can discard any commits you make in this
+2026-01-20T06:23:50.5900077Z state without impacting any branches by switching back to a branch.
+2026-01-20T06:23:50.5900646Z 
+2026-01-20T06:23:50.5901052Z If you want to create a new branch to retain commits you create, you may
+2026-01-20T06:23:50.5901915Z do so (now or later) by using -c with the switch command. Example:
+2026-01-20T06:23:50.5902432Z 
+2026-01-20T06:23:50.5902616Z   git switch -c <new-branch-name>
+2026-01-20T06:23:50.5902964Z 
+2026-01-20T06:23:50.5903159Z Or undo this operation with:
+2026-01-20T06:23:50.5903469Z 
+2026-01-20T06:23:50.5903606Z   git switch -
+2026-01-20T06:23:50.5903786Z 
+2026-01-20T06:23:50.5904122Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-01-20T06:23:50.5904616Z 
+2026-01-20T06:23:50.5904917Z HEAD is now at 75e41cba51 luci-app-travelmate: sync with update 2.2.1-2
+2026-01-20T06:23:51.2514102Z luci-theme-argon文件下载完成
+2026-01-20T06:23:52.1200630Z default-settings文件下载完成
+2026-01-20T06:25:14.6390810Z packages_lang_golang文件下载完成
+2026-01-20T06:25:14.7936756Z feeds_packages_lang_node-prebuilt文件下载完成
+2026-01-20T06:25:15.6190268Z packr文件下载完成
+2026-01-20T06:25:15.9934254Z 增加定时更新固件的插件下载完成
+2026-01-20T06:25:15.9987577Z ##[group]Run cd $HOME_PATH
+2026-01-20T06:25:15.9987824Z [36;1mcd $HOME_PATH[0m
+2026-01-20T06:25:15.9988040Z [36;1mbash $COMMON_SH Diy_menu2[0m
+2026-01-20T06:25:16.0048587Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-01-20T06:25:16.0048904Z env:
+2026-01-20T06:25:16.0049096Z   GIT_REPOSITORY: xztxy/build-actions
+2026-01-20T06:25:16.0049516Z   REPO_TOKEN: ***
+2026-01-20T06:25:16.0049842Z   PUSH_PLUS_TOKEN: ***
+2026-01-20T06:25:16.0050171Z   TELEGRAM_BOT_TOKEN: ***
+2026-01-20T06:25:16.0050400Z   TELEGRAM_CHAT_ID: ***
+2026-01-20T06:25:16.0050620Z   TZ: Asia/Shanghai
+2026-01-20T06:25:16.0050813Z   FOLDER_NAME: Fanchmwrt
+2026-01-20T06:25:16.0051011Z   SOURCE_CODE: FANCHMWRT
+2026-01-20T06:25:16.0051205Z   BENDI_VERSION: 2
+2026-01-20T06:25:16.0051405Z   REPO_BRANCH: fanchmwrt-24.10.4
+2026-01-20T06:25:16.0051645Z   INFORMATION_NOTICE: false
+2026-01-20T06:25:16.0051862Z   KEEP_WORKFLOWS: 30
+2026-01-20T06:25:16.0052044Z   KEEP_RELEASES: 30
+2026-01-20T06:25:16.0052251Z   SSH_ACTION: false
+2026-01-20T06:25:16.0052454Z   UPLOAD_FIRMWARE: true
+2026-01-20T06:25:16.0052655Z   UPLOAD_RELEASE: false
+2026-01-20T06:25:16.0052868Z   CACHEWRTBUILD_SWITCH: true
+2026-01-20T06:25:16.0053094Z   UPDATE_FIRMWARE_ONLINE: true
+2026-01-20T06:25:16.0053369Z   GITHUB_LINK: https://github.com/xztxy/build-actions
+2026-01-20T06:25:16.0053669Z   GIT_ACTOR: xztxy
+2026-01-20T06:25:16.0053873Z   WAREHOUSE_MAN: build-actions
+2026-01-20T06:25:16.0054093Z   RUN_NUMBER: 55
+2026-01-20T06:25:16.0054276Z   GIT_REFNAME: main
+2026-01-20T06:25:16.0054650Z   COMPILATION_INFORMATION: true
+2026-01-20T06:25:16.0054880Z   CONFIG_FILE: x86_64
+2026-01-20T06:25:16.0055169Z   HOME_PATH: /home/runner/work/build-actions/build-actions/openwrt
+2026-01-20T06:25:16.0055604Z   OPERATES_PATH: /home/runner/work/build-actions/build-actions/operates
+2026-01-20T06:25:16.0056079Z   COMPILE_PATH: /home/runner/work/build-actions/build-actions/operates/Fanchmwrt
+2026-01-20T06:25:16.0056590Z   BUILD_DIY: /home/runner/work/build-actions/build-actions/operates/Fanchmwrt/diy
+2026-01-20T06:25:16.0057385Z   BUILD_FILES: /home/runner/work/build-actions/build-actions/operates/Fanchmwrt/files
+2026-01-20T06:25:16.0057955Z   BUILD_PATCHES: /home/runner/work/build-actions/build-actions/operates/Fanchmwrt/patches
+2026-01-20T06:25:16.0058532Z   BUILD_PARTSH: /home/runner/work/build-actions/build-actions/operates/Fanchmwrt/diy-part.sh
+2026-01-20T06:25:16.0059139Z   BUILD_SETTINGS: /home/runner/work/build-actions/build-actions/operates/Fanchmwrt/settings.ini
+2026-01-20T06:25:16.0059748Z   MYCONFIG_FILE: /home/runner/work/build-actions/build-actions/operates/Fanchmwrt/seed/x86_64
+2026-01-20T06:25:16.0060196Z   LINSHI_COMMON: /tmp/common
+2026-01-20T06:25:16.0060456Z   DIY_PT1_SH: /tmp/common/Fanchmwrt/diy-part.sh
+2026-01-20T06:25:16.0060765Z   DIY_PT2_SH: /tmp/common/Fanchmwrt/diy2-part.sh
+2026-01-20T06:25:16.0061047Z   COMMON_SH: /tmp/common/common.sh
+2026-01-20T06:25:16.0061287Z   UPGRADE_SH: /tmp/common/upgrade.sh
+2026-01-20T06:25:16.0061533Z   CONFIG_TXT: /tmp/common/config.txt
+2026-01-20T06:25:16.0061777Z   OpenClash_branch: 0
+2026-01-20T06:25:16.0061979Z   Mandatory_theme: argon
+2026-01-20T06:25:16.0062186Z   Default_theme: argon
+2026-01-20T06:25:16.0062423Z   REPO_URL: https://github.com/fanchmwrt/fanchmwrt
+2026-01-20T06:25:16.0062701Z   SOURCE: Fanchmwrt
+2026-01-20T06:25:16.0062891Z   SOURCE_OWNER: fanchmwrt
+2026-01-20T06:25:16.0063109Z   DISTRIB_SOURCECODE: fanchmwrt
+2026-01-20T06:25:16.0063330Z   LUCI_EDITION: 24.10.4
+2026-01-20T06:25:16.0063781Z   GENE_PATH: /home/runner/work/build-actions/build-actions/openwrt/package/base-files/files/bin/config_generate
+2026-01-20T06:25:16.0064467Z   FILES_PATH: /home/runner/work/build-actions/build-actions/openwrt/package/base-files/files/etc/shadow
+2026-01-20T06:25:16.0065120Z   DELETE: /home/runner/work/build-actions/build-actions/openwrt/package/base-files/files/etc/deletefile
+2026-01-20T06:25:16.0065802Z   DEFAULT_PATH: /home/runner/work/build-actions/build-actions/openwrt/package/auto-scripts/files/99-first-run
+2026-01-20T06:25:16.0066744Z   KEEPD_PATH: /home/runner/work/build-actions/build-actions/openwrt/package/base-files/files/lib/upgrade/keep.d/base-files-essential
+2026-01-20T06:25:16.0067693Z   CLEAR_PATH: /tmp/Clear
+2026-01-20T06:25:16.0067909Z   UPGRADE_DATE: 1768890126
+2026-01-20T06:25:16.0068114Z   GUJIAN_DATE: 01.20
+2026-01-20T06:25:16.0068434Z   LICENSES_DOC: /home/runner/work/build-actions/build-actions/openwrt/LICENSES/doc
+2026-01-20T06:25:16.0068810Z   SHANG_CHUAN: true
+2026-01-20T06:25:16.0069263Z   ZZZ_PATH: /home/runner/work/build-actions/build-actions/openwrt/package/default-settings/files/zzz-default-settings
+2026-01-20T06:25:16.0069768Z ##[endgroup]
+2026-01-20T06:25:16.0193303Z 
+2026-01-20T06:25:16.0193684Z [0;33m正在执行：自定义文件[0m
+2026-01-20T06:25:16.0219639Z + export Ipv4_ipaddr=192.168.15.1
+2026-01-20T06:25:16.0220130Z + Ipv4_ipaddr=192.168.15.1
+2026-01-20T06:25:16.0220540Z + export Netmask_netm=255.255.255.0
+2026-01-20T06:25:16.0220986Z + Netmask_netm=255.255.255.0
+2026-01-20T06:25:16.0221407Z + export Op_name=Fanchm_wrt
+2026-01-20T06:25:16.0221853Z + Op_name=Fanchm_wrt
+2026-01-20T06:25:16.0222221Z + export Kernel_partition_size=32
+2026-01-20T06:25:16.0222630Z + Kernel_partition_size=32
+2026-01-20T06:25:16.0223002Z + export Rootfs_partition_size=512
+2026-01-20T06:25:16.0223415Z + Rootfs_partition_size=512
+2026-01-20T06:25:16.0223806Z + export Mandatory_theme=argon
+2026-01-20T06:25:16.0224185Z + Mandatory_theme=argon
+2026-01-20T06:25:16.0224533Z + export Default_theme=argon
+2026-01-20T06:25:16.0224910Z + Default_theme=argon
+2026-01-20T06:25:16.0225510Z + export Gateway_Settings=0
+2026-01-20T06:25:16.0225901Z + Gateway_Settings=0
+2026-01-20T06:25:16.0226238Z + export DNS_Settings=0
+2026-01-20T06:25:16.0226580Z + DNS_Settings=0
+2026-01-20T06:25:16.0226897Z + export Broadcast_Ipv4=0
+2026-01-20T06:25:16.0227486Z + Broadcast_Ipv4=0
+2026-01-20T06:25:16.0227802Z + export Disable_DHCP=0
+2026-01-20T06:25:16.0228073Z + Disable_DHCP=0
+2026-01-20T06:25:16.0228264Z + export Disable_Bridge=0
+2026-01-20T06:25:16.0228488Z + Disable_Bridge=0
+2026-01-20T06:25:16.0228686Z + export Create_Ipv6_Lan=0
+2026-01-20T06:25:16.0228891Z + Create_Ipv6_Lan=0
+2026-01-20T06:25:16.0229099Z + export Enable_IPV6_function=0
+2026-01-20T06:25:16.0229330Z + Enable_IPV6_function=0
+2026-01-20T06:25:16.0229537Z + export Enable_IPV4_function=0
+2026-01-20T06:25:16.0229754Z + Enable_IPV4_function=0
+2026-01-20T06:25:16.0229949Z + export OpenClash_branch=0
+2026-01-20T06:25:16.0230153Z + OpenClash_branch=0
+2026-01-20T06:25:16.0230364Z ++ TZ=UTC-8
+2026-01-20T06:25:16.0230525Z ++ date +%Y.%m.%d
+2026-01-20T06:25:16.0237183Z + export Customized_Information=2026.01.20
+2026-01-20T06:25:16.0237702Z + Customized_Information=2026.01.20
+2026-01-20T06:25:16.0238127Z + export Replace_Kernel=0
+2026-01-20T06:25:16.0238505Z + Replace_Kernel=0
+2026-01-20T06:25:16.0238859Z + export Password_free_login=1
+2026-01-20T06:25:16.0239262Z + Password_free_login=1
+2026-01-20T06:25:16.0239633Z + export AdGuardHome_Core=0
+2026-01-20T06:25:16.0239998Z + AdGuardHome_Core=0
+2026-01-20T06:25:16.0240378Z + export Automatic_Mount_Settings=0
+2026-01-20T06:25:16.0240796Z + Automatic_Mount_Settings=0
+2026-01-20T06:25:16.0241180Z + export Disable_autosamba=0
+2026-01-20T06:25:16.0241553Z + Disable_autosamba=0
+2026-01-20T06:25:16.0241900Z + export Ttyd_account_free_login=1
+2026-01-20T06:25:16.0242305Z + Ttyd_account_free_login=1
+2026-01-20T06:25:16.0242697Z + export Delete_unnecessary_items=1
+2026-01-20T06:25:16.0243051Z + Delete_unnecessary_items=1
+2026-01-20T06:25:16.0243282Z + export Disable_53_redirection=0
+2026-01-20T06:25:16.0243523Z + Disable_53_redirection=0
+2026-01-20T06:25:16.0243731Z + export Cancel_running=0
+2026-01-20T06:25:16.0243934Z + Cancel_running=0
+2026-01-20T06:25:16.0244125Z + export amlogic_model=s905d
+2026-01-20T06:25:16.0244335Z + amlogic_model=s905d
+2026-01-20T06:25:16.0244539Z + export amlogic_kernel=6.1.120_6.12.15
+2026-01-20T06:25:16.0244778Z + amlogic_kernel=6.1.120_6.12.15
+2026-01-20T06:25:16.0245011Z + export auto_kernel=true
+2026-01-20T06:25:16.0245215Z + auto_kernel=true
+2026-01-20T06:25:16.0245600Z + export rootfs_size=512/2560
+2026-01-20T06:25:16.0245817Z + rootfs_size=512/2560
+2026-01-20T06:25:16.0246010Z + export kernel_usage=stable
+2026-01-20T06:25:16.0246225Z + kernel_usage=stable
+2026-01-20T06:25:16.0246567Z + echo '正在克隆 luci-theme-kucat...'
+2026-01-20T06:25:16.0247275Z + git clone --depth=1 -b master https://github.com/sirpdboy/luci-theme-kucat package/luci-theme-kucat
+2026-01-20T06:25:16.0247800Z 正在克隆 luci-theme-kucat...
+2026-01-20T06:25:16.0254326Z Cloning into 'package/luci-theme-kucat'...
+2026-01-20T06:25:16.2627111Z + echo '正在克隆 luci-app-kucat-config...'
+2026-01-20T06:25:16.2627795Z 正在克隆 luci-app-kucat-config...
+2026-01-20T06:25:16.2628489Z + git clone --depth=1 -b master https://github.com/sirpdboy/luci-app-kucat-config package/luci-app-kucat-config
+2026-01-20T06:25:16.2640815Z Cloning into 'package/luci-app-kucat-config'...
+2026-01-20T06:25:16.7497422Z + echo '正在克隆 luci-app-mosdns...'
+2026-01-20T06:25:16.7498024Z 正在克隆 luci-app-mosdns...
+2026-01-20T06:25:16.7498724Z + git clone --depth=1 -b v5 https://github.com/sbwml/luci-app-mosdns package/mosdns
+2026-01-20T06:25:16.7510386Z Cloning into 'package/mosdns'...
+2026-01-20T06:25:16.9204067Z + echo '正在克隆 luci-app-lucky...'
+2026-01-20T06:25:16.9204535Z 正在克隆 luci-app-lucky...
+2026-01-20T06:25:16.9204963Z + git clone --depth=1 -b main https://github.com/gdy666/luci-app-lucky package/lucky
+2026-01-20T06:25:16.9216701Z Cloning into 'package/lucky'...
+2026-01-20T06:25:17.0733646Z + echo '正在克隆 OpenWrt-nikki...'
+2026-01-20T06:25:17.0734437Z + git clone --depth=1 -b main https://github.com/nikkinikki-org/OpenWrt-nikki package/nikki
+2026-01-20T06:25:17.0734974Z 正在克隆 OpenWrt-nikki...
+2026-01-20T06:25:17.0746174Z Cloning into 'package/nikki'...
+2026-01-20T06:25:17.2502841Z + '[' -n /tmp/Clear ']'
+2026-01-20T06:25:17.2503216Z + cat
+2026-01-20T06:25:17.2516515Z + '[' -n /home/runner/work/build-actions/build-actions/openwrt/package/base-files/files/etc/deletefile ']'
+2026-01-20T06:25:17.2517446Z + cat
+2026-01-20T06:25:21.0365683Z ##[error]Process completed with exit code 1.
+2026-01-20T06:25:21.0501364Z Post job cleanup.
+2026-01-20T06:25:21.1460999Z [command]/usr/bin/git version
+2026-01-20T06:25:21.1495886Z git version 2.52.0
+2026-01-20T06:25:21.1534165Z Copying '/home/runner/.gitconfig' to '/home/runner/work/_temp/bc461009-eb4e-46de-9b61-8ec66d1952eb/.gitconfig'
+2026-01-20T06:25:21.1543702Z Temporarily overriding HOME='/home/runner/work/_temp/bc461009-eb4e-46de-9b61-8ec66d1952eb' before making global git config changes
+2026-01-20T06:25:21.1545050Z Adding repository directory to the temporary git global config as a safe directory
+2026-01-20T06:25:21.1557699Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/build-actions/build-actions
+2026-01-20T06:25:21.1591890Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-01-20T06:25:21.1624276Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-01-20T06:25:21.1854391Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-01-20T06:25:21.1875820Z http.https://github.com/.extraheader
+2026-01-20T06:25:21.1888897Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-01-20T06:25:21.1920306Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-01-20T06:25:21.2142412Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-01-20T06:25:21.2176086Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-01-20T06:25:21.2536393Z Cleaning up orphan processes

@@ -61,11 +61,12 @@ export Cancel_running="0"                    # 取消路由器每天跑分任务
 ###### Git稀疏克隆函数定义（必须在使用前定义）
 function git_sparse_clone() {
   branch="$1" repourl="$2" && shift 2
-  git clone --depth=1 -b $branch --single-branch --filter=blob:none --sparse $repourl
+  git clone --depth=1 -b $branch --single-branch --filter=blob:none --sparse $repourl || return 1
   repodir=$(echo $repourl | awk -F '/' '{print $(NF)}')
-  cd $repodir && git sparse-checkout set $@
-  mv -n $@ ../package 2>/dev/null
+  cd $repodir && git sparse-checkout set $@ || { cd ..; rm -rf $repodir; return 1; }
+  mv -f $@ ../package/ 2>/dev/null || true
   cd .. && rm -rf $repodir
+  return 0
 }
 
 ###### Themes
@@ -82,12 +83,17 @@ git clone --depth=1 -b main https://github.com/gdy666/luci-app-lucky package/luc
 # 拉取文件管理
 git clone --depth=1 https://github.com/sbwml/luci-app-filemanager package/luci-app-filemanager
 
-# 添加xwan
-git_sparse_clone master https://github.com/x-wrt/com.x-wrt luci-app-xwan
+# 添加xwan（添加错误处理）
+echo "正在克隆 xwan 插件..."
+if git_sparse_clone master https://github.com/x-wrt/com.x-wrt luci-app-xwan; then
+    echo "✓ xwan 插件克隆成功"
+else
+    echo "✗ xwan 插件克隆失败，跳过"
+fi
 
 ##### 科学上网插件
 
-# 从 xztxy/small-package 克隆特定插件（使用完整克隆方式，更稳定）
+# 从 xztxy/small-package 克隆特定插件（使用完整克隆方式）
 echo "正在从 small-package 仓库克隆插件..."
 if git clone --depth=1 -b main https://github.com/xztxy/small-package /tmp/small-package; then
     echo "仓库克隆成功，正在移动插件..."
@@ -121,6 +127,7 @@ else
     echo "警告: small-package 仓库克隆失败，跳过此步骤"
 fi
 
+echo "所有插件处理完成"
 
 # 整理固件包时候,删除您不想要的固件或者文件,让它不需要上传到Actions空间(根据编译机型变化,自行调整删除名称)
 cat >"$CLEAR_PATH" <<-EOF
@@ -135,4 +142,6 @@ openwrt-x86-64-generic.manifest
 openwrt-x86-64-generic-squashfs-rootfs.img.gz
 EOF
 
-# 在线更新时
+# 在线更新时，删除不想保留固件的某个文件，在EOF跟EOF之间加入删除代码，记住这里对应的是固件的文件路径，比如： rm -rf /etc/config/luci
+cat >>$DELETE <<-EOF
+EOF

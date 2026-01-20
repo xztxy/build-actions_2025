@@ -161,3 +161,7 @@ else
 fi
 
 echo "diy-part.sh 脚本执行完成"
+
+# 明确返回成功状态码,确保后续的 feeds update 能正常执行
+exit 0
+

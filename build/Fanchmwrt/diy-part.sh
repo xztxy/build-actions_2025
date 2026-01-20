@@ -87,8 +87,23 @@ git_sparse_clone master https://github.com/x-wrt/com.x-wrt luci-app-xwan
 
 ##### 科学上网插件
 
-
-git_sparse_clone main https://github.com/xztxy/small-package luci-app-syncdial luci-app-nikki nikki
+# 从 xztxy/small-package 克隆特定插件（使用 main 分支）
+echo "正在从 small-package 仓库克隆插件..."
+if ! git_sparse_clone main https://github.com/xztxy/small-package luci-app-syncdial luci-app-nikki nikki; then
+    echo "稀疏克隆失败，尝试完整克隆方式..."
+    if git clone --depth=1 -b main https://github.com/xztxy/small-package /tmp/small-package; then
+        echo "完整克隆成功，正在移动插件..."
+        [ -d "/tmp/small-package/luci-app-syncdial" ] && mv -f /tmp/small-package/luci-app-syncdial package/
+        [ -d "/tmp/small-package/luci-app-nikki" ] && mv -f /tmp/small-package/luci-app-nikki package/
+        [ -d "/tmp/small-package/nikki" ] && mv -f /tmp/small-package/nikki package/
+        rm -rf /tmp/small-package
+        echo "插件移动完成"
+    else
+        echo "警告: small-package 仓库克隆失败，跳过此步骤"
+    fi
+else
+    echo "插件克隆成功"
+fi
 
 
 # 整理固件包时候,删除您不想要的固件或者文件,让它不需要上传到Actions空间(根据编译机型变化,自行调整删除名称)

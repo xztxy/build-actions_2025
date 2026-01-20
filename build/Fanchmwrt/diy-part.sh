@@ -64,7 +64,7 @@ function git_sparse_clone() {
   git clone --depth=1 -b $branch --single-branch --filter=blob:none --sparse $repourl
   repodir=$(echo $repourl | awk -F '/' '{print $(NF)}')
   cd $repodir && git sparse-checkout set $@
-  mv -f $@ ../package
+  mv -n $@ ../package 2>/dev/null
   cd .. && rm -rf $repodir
 }
 
@@ -87,22 +87,38 @@ git_sparse_clone master https://github.com/x-wrt/com.x-wrt luci-app-xwan
 
 ##### 科学上网插件
 
-# 从 xztxy/small-package 克隆特定插件（使用 main 分支）
+# 从 xztxy/small-package 克隆特定插件（使用完整克隆方式，更稳定）
 echo "正在从 small-package 仓库克隆插件..."
-if ! git_sparse_clone main https://github.com/xztxy/small-package luci-app-syncdial luci-app-nikki nikki; then
-    echo "稀疏克隆失败，尝试完整克隆方式..."
-    if git clone --depth=1 -b main https://github.com/xztxy/small-package /tmp/small-package; then
-        echo "完整克隆成功，正在移动插件..."
-        [ -d "/tmp/small-package/luci-app-syncdial" ] && mv -f /tmp/small-package/luci-app-syncdial package/
-        [ -d "/tmp/small-package/luci-app-nikki" ] && mv -f /tmp/small-package/luci-app-nikki package/
-        [ -d "/tmp/small-package/nikki" ] && mv -f /tmp/small-package/nikki package/
-        rm -rf /tmp/small-package
-        echo "插件移动完成"
+if git clone --depth=1 -b main https://github.com/xztxy/small-package /tmp/small-package; then
+    echo "仓库克隆成功，正在移动插件..."
+    
+    # 移动需要的插件
+    if [ -d "/tmp/small-package/luci-app-syncdial" ]; then
+        mv -f /tmp/small-package/luci-app-syncdial package/
+        echo "✓ luci-app-syncdial 移动成功"
     else
-        echo "警告: small-package 仓库克隆失败，跳过此步骤"
+        echo "✗ 未找到 luci-app-syncdial"
     fi
+    
+    if [ -d "/tmp/small-package/luci-app-nikki" ]; then
+        mv -f /tmp/small-package/luci-app-nikki package/
+        echo "✓ luci-app-nikki 移动成功"
+    else
+        echo "✗ 未找到 luci-app-nikki"
+    fi
+    
+    if [ -d "/tmp/small-package/nikki" ]; then
+        mv -f /tmp/small-package/nikki package/
+        echo "✓ nikki 移动成功"
+    else
+        echo "✗ 未找到 nikki"
+    fi
+    
+    # 清理临时目录
+    rm -rf /tmp/small-package
+    echo "插件处理完成"
 else
-    echo "插件克隆成功"
+    echo "警告: small-package 仓库克隆失败，跳过此步骤"
 fi
 
 
@@ -119,6 +135,4 @@ openwrt-x86-64-generic.manifest
 openwrt-x86-64-generic-squashfs-rootfs.img.gz
 EOF
 
-# 在线更新时，删除不想保留固件的某个文件，在EOF跟EOF之间加入删除代码，记住这里对应的是固件的文件路径，比如： rm -rf /etc/config/luci
-cat >>$DELETE <<-EOF
-EOF
+# 在线更新时

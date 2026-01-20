@@ -88,24 +88,22 @@ git clone --depth=1 -b v5 https://github.com/sbwml/luci-app-mosdns package/mosdn
 
 # 添加Lucky
 echo "正在克隆 luci-app-lucky..."
-#git clone --depth=1 https://github.com/gdy666/luci-app-lucky package/lucky
 git clone --depth=1 -b main https://github.com/gdy666/luci-app-lucky package/lucky || echo "克隆 luci-app-lucky 失败，继续执行"
+
 # 添加nikki
 echo "正在克隆 OpenWrt-nikki..."
 git clone --depth=1 -b main https://github.com/nikkinikki-org/OpenWrt-nikki package/nikki || echo "克隆 OpenWrt-nikki 失败，继续执行"
-# #添加定时更新固件功能
-# git clone --depth=1 -b main https://github.com/libntdll/luci-app-autoupdate package/luci-app-autoupdate
 
 # 修改插件名字
-grep -rl '"终端"' . 2>/dev/null | xargs -r sed -i 's?"终端"?"TTYD"?g' || true
-grep -rl '"TTYD 终端"' . 2>/dev/null | xargs -r sed -i 's?"TTYD 终端"?"TTYD"?g' || true
-grep -rl '"网络存储"' . 2>/dev/null | xargs -r sed -i 's?"网络存储"?"NAS"?g' || true
-grep -rl '"实时流量监测"' . 2>/dev/null | xargs -r sed -i 's?"实时流量监测"?"流量"?g' || true
-grep -rl '"KMS 服务器"' . 2>/dev/null | xargs -r sed -i 's?"KMS 服务器"?"KMS激活"?g' || true
-grep -rl '"USB 打印服务器"' . 2>/dev/null | xargs -r sed -i 's?"USB 打印服务器"?"打印服务"?g' || true
-grep -rl '"Web 管理"' . 2>/dev/null | xargs -r sed -i 's?"Web 管理"?"Web管理"?g' || true
-grep -rl '"管理权"' . 2>/dev/null | xargs -r sed -i 's?"管理权"?"改密码"?g' || true
-grep -rl '"带宽监控"' . 2>/dev/null | xargs -r sed -i 's?"带宽监控"?"监控"?g' || true
+grep -rl '"终端"' . | xargs -r sed -i 's?"终端"?"TTYD"?g'
+grep -rl '"TTYD 终端"' . | xargs -r sed -i 's?"TTYD 终端"?"TTYD"?g'
+grep -rl '"网络存储"' . | xargs -r sed -i 's?"网络存储"?"NAS"?g'
+grep -rl '"实时流量监测"' . | xargs -r sed -i 's?"实时流量监测"?"流量"?g'
+grep -rl '"KMS 服务器"' . | xargs -r sed -i 's?"KMS 服务器"?"KMS激活"?g'
+grep -rl '"USB 打印服务器"' . | xargs -r sed -i 's?"USB 打印服务器"?"打印服务"?g'
+grep -rl '"Web 管理"' . | xargs -r sed -i 's?"Web 管理"?"Web管理"?g'
+grep -rl '"管理权"' . | xargs -r sed -i 's?"管理权"?"改密码"?g'
+grep -rl '"带宽监控"' . | xargs -r sed -i 's?"带宽监控"?"监控"?g'
 
 
 # 整理固件包时候,删除您不想要的固件或者文件,让它不需要上传到Actions空间(根据编译机型变化,自行调整删除名称)
@@ -125,6 +123,12 @@ fi
 
 # 在线更新时，删除不想保留固件的某个文件，在EOF跟EOF之间加入删除代码，记住这里对应的是固件的文件路径，比如： rm -rf /etc/config/luci
 if [ -n "$DELETE" ]; then
-  cat >>$DELETE <<-EOF
+  cat >>"$DELETE" <<-EOF
+# 这里可以添加需要删除的文件路径
+# 例如: rm -rf /etc/config/某配置文件
 EOF
 fi
+
+# 脚本执行完成
+echo "diy-part.sh 脚本执行完成"
+exit 0

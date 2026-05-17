@@ -882,4 +882,5 @@ CONFIG_boost-runtime-shared=y
 CONFIG_boost-static-and-shared-libs=y
 CONFIG_boost-variant-release=y
 # CONFIG_OPENVPN_openssl_ENABLE_DCO is not set
+# CONFIG_PACKAGE_kmod-ovpn-backports is not set
 # CONFIG_VERSION_CODE_FILENAMES is not set
